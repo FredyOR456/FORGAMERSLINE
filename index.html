@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FORGAMERSLINE</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+      <img src="logo.png" alt="Logo FORGAMERSLINE" class="logo" />
+      <p class="slogan">Vive rápido, juega sin miedo</p>
+    </div>
+    <nav>
+      <button id="login-btn">Iniciar Sesión</button>
+      <button id="signup-btn">Registrarse</button>
+      <button id="cart-btn">🛒 Carrito (<span id="cart-count">0</span>)</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="productos">
+      <h2>Tienda de Videojuegos y Accesorios</h2>
+      <div class="producto" data-nombre="PS5" data-precio="500">PlayStation 5 - $500 <button class="add-cart">Agregar</button></div>
+      <div class="producto" data-nombre="Control Xbox" data-precio="70">Control Xbox - $70 <button class="add-cart">Agregar</button></div>
+      <div class="producto" data-nombre="Elden Ring" data-precio="60">Elden Ring - $60 <button class="add-cart">Agregar</button></div>
+    </section>
+
+    <section class="info">
+      <h2>Misión</h2>
+      <p>Brindar a los jugadores una tienda confiable y especializada en videojuegos y accesorios de última generación.</p>
+
+      <h2>Visión</h2>
+      <p>Ser la tienda líder en Latinoamérica en la venta de productos gamer, ofreciendo calidad, innovación y comunidad.</p>
+    </section>
+  </main>
+
+  <!-- Modal de autenticación -->
+  <div id="auth-modal" class="modal">
+    <div class="modal-content">
+      <span id="close-modal">&times;</span>
+      <h2>Inicia sesión o regístrate</h2>
+      <button id="google-login">Google</button>
+      <button id="facebook-login">Facebook</button>
+    </div>
+  </div>
+
+  <!-- Modal del carrito -->
+  <div id="cart-modal" class="modal">
+    <div class="modal-content">
+      <span id="close-cart">&times;</span>
+      <h2>Carrito de Compras</h2>
+      <ul id="cart-items"></ul>
+      <p>Total: $<span id="cart-total">0</span></p>
+    </div>
+  </div>
+
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-auth.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
