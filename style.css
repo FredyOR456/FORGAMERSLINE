@@ -3,12 +3,14 @@
 /* FONDO ANIMADO */
 body {
   font-family: 'Orbitron', sans-serif;
-  margin: 0;
-  padding: 0;
+  margin: 0; padding: 0;
   background: linear-gradient(270deg, #4B0082, #2E0854, #6A0DAD);
   background-size: 600% 600%;
   animation: gradientBG 15s ease infinite;
   color: white;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
 }
 
 @keyframes gradientBG {
@@ -17,8 +19,46 @@ body {
   100% { background-position: 0% 50%; }
 }
 
-/* TEXTO NEÓN GENERAL */
-h1, h2, h3, p, span, .slogan {
+/* HEADER */
+header {
+  background-color: #4B0082;
+  color: white;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo-container {
+  flex: 1;
+  text-align: center;
+}
+
+.logo {
+  max-height: 80px;
+  margin: 0 auto;
+  animation: pulse 3s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 5px #6A0DAD);
+  }
+  50% {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 15px #9B30FF);
+  }
+}
+
+.slogan {
+  font-weight: bold;
+  margin-top: 5px;
   color: white;
   text-shadow:
     0 0 5px #9B30FF,
@@ -27,47 +67,13 @@ h1, h2, h3, p, span, .slogan {
     0 0 40px #DA70D6;
 }
 
-/* HEADER */
-header {
-  background-color: #4B0082;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px;
-  flex-wrap: wrap;
-  box-shadow:
-    0 0 10px #9B30FF,
-    0 0 20px #BA55D3;
-}
-
-/* LOGO CON ANIMACIÓN PULSO */
-.logo {
-  max-height: 80px;
-  animation: pulse 3s infinite;
-  filter: drop-shadow(0 0 10px #BA55D3);
-}
-
-@keyframes pulse {
-  0%, 100% {
-    transform: scale(1);
-    filter: drop-shadow(0 0 10px #BA55D3);
-  }
-  50% {
-    transform: scale(1.05);
-    filter: drop-shadow(0 0 20px #DA70D6);
-  }
-}
-
-/* SLOGAN */
-.slogan {
-  font-weight: bold;
-  margin-top: 5px;
-}
-
-/* NAV */
+/* NAV EN HEADER */
 nav {
   display: flex;
+  align-items: center;
   gap: 10px;
+  position: relative;
+  z-index: 1100;
 }
 
 nav button {
@@ -78,137 +84,122 @@ nav button {
   border-radius: 5px;
   cursor: pointer;
   font-weight: bold;
-  box-shadow:
-    0 0 5px #9B30FF,
-    0 0 10px #BA55D3;
   transition: box-shadow 0.3s ease, transform 0.2s;
 }
 
 nav button:hover {
-  box-shadow:
-    0 0 20px #9B30FF,
-    0 0 40px #DA70D6;
+  box-shadow: 0 0 15px #9B30FF, 0 0 30px #BA55D3;
   transform: scale(1.05);
 }
 
-/* LATERAL MENU */
-aside {
-  background: #1a001a;
-  border-right: 3px solid #9B30FF;
-  box-shadow:
-    0 0 10px #9B30FF,
-    0 0 20px #BA55D3;
-  width: 220px;
-  height: 100vh;
+/* BOTON HAMBURGUESA */
+#hamburger-btn {
+  display: none;
+  font-size: 26px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 0 10px;
+}
+
+/* BARRA LATERAL */
+.sidebar {
   position: fixed;
-  top: 0;
+  top: 110px; /* debajo del header */
   left: 0;
-  padding: 30px 15px;
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-  color: white;
-}
-
-aside h2 {
-  color: #DA70D6;
-  text-shadow:
-    0 0 10px #BA55D3,
-    0 0 20px #DA70D6;
-  font-weight: 900;
-  font-size: 1.8em;
-  margin-bottom: 15px;
-}
-
-aside nav a {
-  display: block;
-  text-decoration: none;
-  color: #9B30FF;
-  font-weight: bold;
-  padding: 8px 15px;
-  border-radius: 8px;
-  box-shadow:
-    0 0 10px #9B30FF;
-  transition: background-color 0.3s, box-shadow 0.3s;
-}
-
-aside nav a:hover {
-  background-color: #6A0DAD;
-  box-shadow:
-    0 0 15px #DA70D6,
-    0 0 30px #BA55D3;
-  color: white;
-}
-
-/* MAIN CONTENIDO AJUSTADO POR LATERAL */
-main {
-  margin-left: 240px;
-  padding: 25px 30px;
-  min-height: 100vh;
-  background: rgba(0,0,0,0.4);
-  box-shadow:
-    inset 0 0 30px #6A0DAD;
-  border-radius: 15px;
-}
-
-/* PRODUCTOS */
-.producto {
-  background: rgba(0,0,0,0.7);
-  border: 2px solid #9B30FF;
-  border-radius: 15px;
-  box-shadow:
-    0 0 8px #9B30FF,
-    0 0 15px #BA55D3;
-  padding: 15px;
-  margin-bottom: 25px;
-  display: flex;
-  align-items: center;
-  gap: 25px;
-  color: white;
-  text-shadow:
-    0 0 4px #9B30FF;
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
-}
-
-.producto:hover {
-  box-shadow:
-    0 0 25px #DA70D6,
-    0 0 50px #BA55D3;
-  transform: scale(1.04);
-}
-
-.producto-img {
-  width: 120px;
-  border-radius: 12px;
-  box-shadow:
-    0 0 15px #9B30FF;
+  width: 200px;
+  height: calc(100% - 110px);
+  background-color: #330066cc;
+  padding-top: 20px;
+  box-shadow: 2px 0 8px rgba(0,0,0,0.7);
+  overflow-y: auto;
   transition: transform 0.3s ease;
 }
 
-.producto-img:hover {
-  transform: scale(1.12);
+.sidebar ul {
+  list-style: none;
+  padding-left: 0;
 }
 
-/* BOTÓN AGREGAR CARRITO */
-button.add-cart {
-  margin-left: auto;
-  background-color: #6A0DAD;
-  border: none;
-  border-radius: 8px;
-  padding: 10px 15px;
-  font-weight: bold;
+.sidebar ul li {
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.sidebar ul li a {
   color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 18px;
+  text-shadow:
+    0 0 5px #9B30FF,
+    0 0 10px #BA55D3;
+  transition: color 0.3s ease;
+}
+
+.sidebar ul li a:hover {
+  color: #DA70D6;
+}
+
+/* CONTENIDO PRINCIPAL */
+main {
+  margin-left: 220px;
+  padding: 130px 20px 40px 20px;
+  flex-grow: 1;
+}
+
+/* PRODUCTOS */
+.productos {
+  margin-bottom: 40px;
+}
+
+.producto {
+  margin: 20px 0;
+  padding: 15px;
+  border: 1px solid #9B30FF;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  color: white;
+  text-shadow:
+    0 0 3px #9B30FF,
+    0 0 6px #BA55D3;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.producto:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 20px #9B30FF;
+}
+
+.producto-img {
+  width: 100px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #9B30FF;
+  transition: transform 0.3s;
+}
+
+.producto-img:hover {
+  transform: scale(1.1);
+}
+
+button.add-cart {
+  background-color: #6A0DAD;
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
   cursor: pointer;
-  box-shadow:
-    0 0 8px #9B30FF;
   transition: box-shadow 0.3s ease, transform 0.2s;
 }
 
 button.add-cart:hover {
-  box-shadow:
-    0 0 18px #DA70D6,
-    0 0 35px #BA55D3;
-  transform: scale(1.1);
+  box-shadow: 0 0 10px #9B30FF, 0 0 20px #BA55D3;
+  transform: scale(1.05);
 }
 
 /* MODALES */
@@ -218,76 +209,70 @@ button.add-cart:hover {
   top: 0; left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.85);
+  background: rgba(0,0,0,0.8);
   justify-content: center;
   align-items: center;
-  z-index: 1000;
+  z-index: 9999;
 }
 
 .modal-content {
   background: #1a001a;
   color: #9B30FF;
-  padding: 25px;
-  border-radius: 15px;
-  width: 320px;
-  box-shadow:
-    0 0 20px #9B30FF,
-    0 0 40px #DA70D6;
-  position: relative;
+  padding: 20px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
 }
 
-#close-modal, #close-cart {
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  font-size: 24px;
-  cursor: pointer;
-  color: #BA55D3;
-  font-weight: bold;
-}
-
-#cart-items button {
-  background-color: #9B30FF;
-  color: white;
+.modal-content button {
+  margin: 10px;
+  padding: 10px 20px;
+  border-radius: 5px;
   border: none;
-  padding: 5px 10px;
-  margin-left: 12px;
+  font-weight: bold;
   cursor: pointer;
-  border-radius: 6px;
-  box-shadow:
-    0 0 8px #9B30FF;
+  background-color: #6A0DAD;
+  color: white;
   transition: background-color 0.3s ease;
 }
 
-#cart-items button:hover {
-  background-color: #DA70D6;
+.modal-content button:hover {
+  background-color: #9B30FF;
+}
+
+.modal-content span {
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  float: right;
+}
+
+/* SCROLL SUAVE */
+html {
+  scroll-behavior: smooth;
 }
 
 /* RESPONSIVE */
-@media (max-width: 900px) {
-  aside {
-    position: relative;
-    width: 100%;
-    height: auto;
-    border-right: none;
-    border-bottom: 3px solid #9B30FF;
-    flex-direction: row;
-    justify-content: center;
-    padding: 10px 0;
-    gap: 15px;
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 200px;
+    height: calc(100% - 60px);
+    background-color: #330066cc;
+    transform: translateX(-100%);
+    z-index: 1500;
   }
-
-  aside h2 {
-    font-size: 1.3em;
+  .sidebar.open {
+    transform: translateX(0);
   }
-
-  aside nav {
-    display: flex;
-    gap: 15px;
-  }
-
   main {
     margin-left: 0;
-    padding: 15px;
+    padding: 80px 15px 40px 15px;
+  }
+  #hamburger-btn {
+    display: block;
   }
 }
