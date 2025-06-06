@@ -16,17 +16,17 @@ body {
 /* GLOW NEÓN GENERAL */
 .glow-neon {
   text-shadow:
-    0 0 5px #fff,
-    0 0 10px #fff,
-    0 0 20px #fff,
-    0 0 30px #fff,
-    0 0 40px #fff;
+    0 0 5px #b56aff,
+    0 0 10px #b56aff,
+    0 0 20px #a24dff,
+    0 0 30px #a24dff,
+    0 0 40px #7a2cff;
 }
 
 /* HEADER */
 header {
   background-color: #1a001a;
-  color: #fff;
+  color: #b56aff;
   padding: 15px 20px;
   display: flex;
   justify-content: space-between;
@@ -37,8 +37,8 @@ header {
   top: 0;
   z-index: 1000;
   box-shadow:
-    0 0 8px #fff,
-    inset 0 0 10px #fff;
+    0 0 8px #b56aff,
+    inset 0 0 10px #7a2cff;
 }
 
 .logo-container {
@@ -49,27 +49,27 @@ header {
 .logo {
   max-height: 80px;
   margin: 0 auto;
-  filter: drop-shadow(0 0 8px #fff);
+  filter: drop-shadow(0 0 8px #9b30ff);
   animation: pulseGlow 3s infinite ease-in-out;
 }
 
 @keyframes pulseGlow {
   0%, 100% {
-    filter: drop-shadow(0 0 8px #fff);
+    filter: drop-shadow(0 0 8px #9b30ff);
   }
   50% {
-    filter: drop-shadow(0 0 18px #fff);
+    filter: drop-shadow(0 0 18px #b56aff);
   }
 }
 
 .slogan {
   font-weight: bold;
   margin-top: 5px;
-  color: #fff;
+  color: #b56aff;
   text-shadow:
-    0 0 8px #fff,
-    0 0 15px #fff,
-    0 0 25px #fff;
+    0 0 8px #9b30ff,
+    0 0 15px #b56aff,
+    0 0 25px #a24dff;
 }
 
 /* NAV EN HEADER */
@@ -83,9 +83,9 @@ nav {
 
 nav button {
   padding: 10px 20px;
-  border: 2px solid #fff;
+  border: 2px solid #a24dff;
   background-color: transparent;
-  color: #fff;
+  color: #b56aff;
   border-radius: 8px;
   cursor: pointer;
   font-weight: 700;
@@ -94,16 +94,16 @@ nav button {
     box-shadow 0.3s ease, 
     transform 0.2s ease, 
     background-color 0.3s ease;
-  text-shadow: 0 0 5px #fff;
-  filter: drop-shadow(0 0 4px #fff);
+  text-shadow: 0 0 5px #b56aff;
+  filter: drop-shadow(0 0 4px #b56aff);
 }
 
 nav button:hover {
-  background-color: #fff;
+  background-color: #a24dff;
   color: #0a0014;
   box-shadow:
-    0 0 15px #fff,
-    0 0 30px #fff;
+    0 0 15px #b56aff,
+    0 0 30px #7a2cff;
   transform: scale(1.1);
 }
 
@@ -113,14 +113,14 @@ nav button:hover {
   font-size: 28px;
   background: none;
   border: none;
-  color: #fff;
+  color: #b56aff;
   cursor: pointer;
   padding: 0 10px;
-  filter: drop-shadow(0 0 5px #fff);
+  filter: drop-shadow(0 0 5px #b56aff);
 }
 
 #hamburger-btn:hover {
-  color: #ccc;
+  color: #9b30ff;
 }
 
 /* BARRA LATERAL */
@@ -133,11 +133,11 @@ nav button:hover {
   background-color: #220033cc;
   padding-top: 20px;
   box-shadow:
-    2px 0 12px #fff,
-    inset 0 0 15px #fff;
+    2px 0 12px #b56aff,
+    inset 0 0 15px #7a2cff;
   overflow-y: auto;
   transition: transform 0.3s ease;
-  border-right: 2px solid #fff;
+  border-right: 2px solid #a24dff;
   backdrop-filter: blur(8px);
 }
 
@@ -152,22 +152,22 @@ nav button:hover {
 }
 
 .sidebar ul li a {
-  color: #fff;
+  color: #b56aff;
   text-decoration: none;
   font-weight: 700;
   font-size: 18px;
   text-shadow:
-    0 0 8px #fff,
-    0 0 12px #fff;
+    0 0 8px #b56aff,
+    0 0 12px #7a2cff;
   transition: color 0.3s ease;
 }
 
 .sidebar ul li a:hover {
-  color: #eee;
+  color: #d18aff;
   text-shadow:
-    0 0 12px #eee,
-    0 0 18px #eee,
-    0 0 28px #eee;
+    0 0 12px #d18aff,
+    0 0 18px #d18aff,
+    0 0 28px #d18aff;
 }
 
 /* CONTENIDO PRINCIPAL */
@@ -185,26 +185,26 @@ main {
 .producto {
   margin: 20px 0;
   padding: 18px;
-  border: 2px solid #fff;
+  border: 2px solid #a24dff;
   border-radius: 12px;
   background: rgba(18, 0, 36, 0.6);
   display: flex;
   align-items: center;
   gap: 25px;
-  color: #eee;
+  color: #d1b3ff;
   text-shadow:
-    0 0 6px #fff,
-    0 0 12px #fff;
+    0 0 6px #b56aff,
+    0 0 12px #a24dff;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
   box-shadow:
-    0 0 12px #fff;
+    0 0 12px #7a2cff;
 }
 
 .producto:hover {
   transform: scale(1.04);
   box-shadow:
-    0 0 25px #fff,
-    0 0 40px #fff;
+    0 0 25px #b56aff,
+    0 0 40px #d18aff;
 }
 
 .producto-img {
@@ -212,28 +212,28 @@ main {
   height: auto;
   border-radius: 12px;
   box-shadow:
-    0 0 18px #fff,
-    0 0 30px #fff;
+    0 0 18px #a24dff,
+    0 0 30px #b56aff;
   transition: transform 0.3s ease;
-  filter: drop-shadow(0 0 10px #fff);
+  filter: drop-shadow(0 0 10px #9b30ff);
 }
 
 .producto-img:hover {
   transform: scale(1.12);
-  filter: drop-shadow(0 0 20px #fff);
+  filter: drop-shadow(0 0 20px #d18aff);
 }
 
 button.add-cart {
   background-color: transparent;
-  color: #fff;
+  color: #d18aff;
   padding: 10px 16px;
-  border: 2px solid #fff;
+  border: 2px solid #b56aff;
   border-radius: 8px;
   cursor: pointer;
   font-weight: 700;
   font-size: 1rem;
-  text-shadow: 0 0 6px #fff;
-  filter: drop-shadow(0 0 5px #fff);
+  text-shadow: 0 0 6px #b56aff;
+  filter: drop-shadow(0 0 5px #b56aff);
   transition:
     box-shadow 0.3s ease,
     transform 0.2s ease,
@@ -241,11 +241,11 @@ button.add-cart {
 }
 
 button.add-cart:hover {
-  background-color: #fff;
+  background-color: #a24dff;
   color: #0a0014;
   box-shadow:
-    0 0 15px #fff,
-    0 0 30px #fff;
+    0 0 15px #d18aff,
+    0 0 30px #d18aff;
   transform: scale(1.1);
 }
 
@@ -265,16 +265,16 @@ button.add-cart:hover {
 
 .modal-content {
   background: #220033;
-  color: #fff;
+  color: #b56aff;
   padding: 25px 30px;
   border-radius: 12px;
   width: 90%;
   max-width: 420px;
   text-align: center;
   box-shadow:
-    0 0 15px #fff,
-    inset 0 0 20px #fff;
-  border: 2px solid #fff;
+    0 0 15px #7a2cff,
+    inset 0 0 20px #a24dff;
+  border: 2px solid #b56aff;
 }
 
 .modal-content button {
@@ -284,18 +284,18 @@ button.add-cart:hover {
   border: none;
   font-weight: 800;
   cursor: pointer;
-  background-color: #666;
+  background-color: #6a0dad;
   color: white;
   transition: background-color 0.3s ease;
-  text-shadow: 0 0 5px #fff;
-  filter: drop-shadow(0 0 7px #fff);
+  text-shadow: 0 0 5px #b56aff;
+  filter: drop-shadow(0 0 7px #b56aff);
 }
 
 .modal-content button:hover {
-  background-color: #ccc;
+  background-color: #9b30ff;
   box-shadow:
-    0 0 20px #fff,
-    0 0 35px #fff;
+    0 0 20px #d18aff,
+    0 0 35px #d18aff;
 }
 
 .modal-content span#close-modal,
@@ -304,18 +304,18 @@ button.add-cart:hover {
   top: 15px;
   right: 25px;
   font-size: 30px;
-  color: #fff;
+  color: #b56aff;
   cursor: pointer;
   font-weight: 700;
-  filter: drop-shadow(0 0 6px #fff);
+  filter: drop-shadow(0 0 6px #d18aff);
   transition: color 0.3s ease;
 }
 
 .modal-content span#close-modal:hover,
 .modal-content span#close-cart:hover {
-  color: #ccc;
+  color: #9b30ff;
   text-shadow:
-    0 0 18px #fff;
+    0 0 18px #d18aff;
 }
 
 /* CARRITO */
@@ -323,19 +323,19 @@ button.add-cart:hover {
   list-style: none;
   padding: 0;
   margin: 0 0 15px 0;
-  color: #fff;
+  color: #d18aff;
   text-shadow:
-    0 0 5px #fff;
+    0 0 5px #b56aff;
   max-height: 250px;
   overflow-y: auto;
-  border: 1px solid #fff;
+  border: 1px solid #7a2cff;
   border-radius: 8px;
   background-color: #1a001a;
 }
 
 #cart-items li {
   padding: 10px 15px;
-  border-bottom: 1px solid #fff;
+  border-bottom: 1px solid #7a2cff;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -360,18 +360,18 @@ button.add-cart:hover {
   font-weight: 700;
   font-size: 1.2rem;
   text-align: right;
-  color: #fff;
+  color: #b56aff;
   text-shadow:
-    0 0 6px #fff,
-    0 0 12px #fff;
+    0 0 6px #b56aff,
+    0 0 12px #d18aff;
   margin-bottom: 10px;
 }
 
 #cart-count {
   font-weight: 700;
-  color: #fff;
+  color: #d18aff;
   text-shadow:
-    0 0 5px #fff;
+    0 0 5px #b56aff;
 }
 
 /* RESPONSIVE */
