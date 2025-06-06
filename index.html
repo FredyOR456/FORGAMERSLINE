@@ -5,120 +5,320 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>FORGAMERSLINE</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* FUENTES Y FONDO ANIMADO */
+    body {
+      font-family: 'Orbitron', sans-serif;
+      background: linear-gradient(270deg, #4B0082, #2E0854, #6A0DAD);
+      background-size: 600% 600%;
+      animation: gradientBG 15s ease infinite;
+      color: white;
+      margin: 0; padding: 0;
+    }
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* HEADER */
+    header {
+      background-color: #4B0082;
+      padding: 15px;
+      display: flex;
+      justify-content: flex-end;
+      gap: 15px;
+    }
+    button {
+      background-color: #6A0DAD;
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+      text-transform: uppercase;
+      transition: box-shadow 0.3s ease, transform 0.2s ease;
+    }
+    button:hover {
+      box-shadow: 0 0 15px #9B30FF, 0 0 30px #BA55D3;
+      transform: scale(1.05);
+    }
+
+    /* MODALES */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.8);
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
+    .modal-content {
+      background: #1a001a;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #9B30FF, 0 0 20px #DA70D6;
+      color: white;
+      width: 320px;
+      position: relative;
+      text-align: center;
+    }
+    .close-btn {
+      position: absolute;
+      top: 10px; right: 15px;
+      font-size: 20px;
+      cursor: pointer;
+      color: #BA55D3;
+      font-weight: bold;
+    }
+
+    /* CARRITO */
+    #cart-items {
+      list-style: none;
+      padding: 0;
+      margin: 15px 0;
+      max-height: 200px;
+      overflow-y: auto;
+      text-align: left;
+    }
+    #cart-items li {
+      margin: 8px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    #cart-items button {
+      background-color: #9B30FF;
+      border: none;
+      color: white;
+      padding: 3px 7px;
+      border-radius: 3px;
+      cursor: pointer;
+      margin-left: 10px;
+    }
+
+    /* PRODUCTOS EJEMPLO */
+    main {
+      padding: 20px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .producto {
+      border: 1px solid #9B30FF;
+      border-radius: 10px;
+      background: rgba(0,0,0,0.6);
+      color: white;
+      padding: 15px;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      box-shadow:
+        0 0 5px #9B30FF,
+        0 0 10px #BA55D3;
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+    }
+    .producto:hover {
+      box-shadow:
+        0 0 20px #9B30FF,
+        0 0 40px #DA70D6;
+      transform: scale(1.03);
+    }
+    .producto img {
+      width: 120px;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #9B30FF;
+      transition: transform 0.3s ease;
+    }
+    .producto img:hover {
+      transform: scale(1.1);
+    }
+    .producto-info {
+      flex: 1;
+      font-size: 1.1rem;
+      font-weight: bold;
+      text-shadow:
+        0 0 5px #9B30FF,
+        0 0 10px #BA55D3;
+    }
+    .add-cart {
+      background-color: #6A0DAD;
+      border: none;
+      color: white;
+      padding: 8px 12px;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: box-shadow 0.3s ease, transform 0.2s ease;
+    }
+    .add-cart:hover {
+      box-shadow: 0 0 10px #9B30FF, 0 0 20px #BA55D3;
+      transform: scale(1.05);
+    }
+
+  </style>
 </head>
 <body>
+
   <header>
-    <div class="logo-container">
-      <img src="logo.png" alt="Logo FORGAMERSLINE" class="logo" />
-      <p class="slogan">Vive rápido, juega sin miedo</p>
-    </div>
-    <nav>
-      <button id="login-btn">Iniciar Sesión</button>
-      <button id="signup-btn">Registrarse</button>
-      <button id="cart-btn">🛒 Carrito (<span id="cart-count">0</span>)</button>
-      <button id="hamburger-btn" class="hamburger">&#9776;</button>
-    </nav>
+    <button id="login-btn">Iniciar Sesión</button>
+    <button id="signup-btn">Registrarse</button>
+    <button id="cart-btn">Carrito (<span id="cart-count">0</span>)</button>
   </header>
 
-  <aside class="sidebar" id="sidebar">
-    <ul>
-      <li><a href="#videojuegos">Videojuegos</a></li>
-      <li><a href="#consolas">Consolas</a></li>
-      <li><a href="#controles">Controles</a></li>
-      <li><a href="#figuras">Figuras</a></li>
-    </ul>
-  </aside>
-
   <main>
-    <section id="videojuegos" class="productos">
-      <h2>Videojuegos</h2>
-      <div class="producto" data-nombre="Minecraft" data-precio="60">
-        <img src="Minecraft.jpg" alt="Minecraft" class="producto-img" />
-        <span>Minecraft - $60</span>
-        <button class="add-cart">Agregar</button>
-      </div>
-      <div class="producto" data-nombre="Call of Duty" data-precio="70">
-        <img src="cod.jpg" alt="Call of Duty" class="producto-img" />
-        <span>Call of Duty - $70</span>
-        <button class="add-cart">Agregar</button>
-      </div>
-      <div class="producto" data-nombre="FIFA 2025" data-precio="65">
-        <img src="fifa2025.jpg" alt="FIFA 2025" class="producto-img" />
-        <span>FIFA 2025 - $65</span>
-        <button class="add-cart">Agregar</button>
-      </div>
-      <!-- Agrega más videojuegos aquí -->
-    </section>
+    <h1 style="text-align:center; text-shadow:
+      0 0 5px #9B30FF,
+      0 0 10px #BA55D3,
+      0 0 20px #DA70D6;">Tienda FORGAMERSLINE</h1>
 
-    <section id="consolas" class="productos">
-      <h2>Consolas</h2>
-      <div class="producto" data-nombre="PlayStation 5" data-precio="500">
-        <img src="ps5.jpg" alt="PlayStation 5" class="producto-img" />
-        <span>PlayStation 5 - $500</span>
-        <button class="add-cart">Agregar</button>
-      </div>
-      <div class="producto" data-nombre="Xbox Series X" data-precio="480">
-        <img src="xbox-series-x.jpg" alt="Xbox Series X" class="producto-img" />
-        <span>Xbox Series X - $480</span>
-        <button class="add-cart">Agregar</button>
-      </div>
-      <!-- Agrega más consolas -->
-    </section>
+    <!-- Productos -->
+    <div class="producto" data-nombre="PlayStation 5" data-precio="500">
+      <img src="ps5.jpg" alt="PlayStation 5" />
+      <div class="producto-info">PlayStation 5 - $500</div>
+      <button class="add-cart">Agregar</button>
+    </div>
 
-    <section id="controles" class="productos">
-      <h2>Controles</h2>
-      <div class="producto" data-nombre="Control Xbox" data-precio="70">
-        <img src="control-xbox.jpg" alt="Control Xbox" class="producto-img" />
-        <span>Control Xbox - $70</span>
-        <button class="add-cart">Agregar</button>
-      </div>
-      <div class="producto" data-nombre="Control PS5" data-precio="75">
-        <img src="control-ps5.jpg" alt="Control PS5" class="producto-img" />
-        <span>Control PS5 - $75</span>
-        <button class="add-cart">Agregar</button>
-      </div>
-      <!-- Agrega más controles -->
-    </section>
+    <div class="producto" data-nombre="Control Xbox" data-precio="70">
+      <img src="control-xbox.jpg" alt="Control Xbox" />
+      <div class="producto-info">Control Xbox - $70</div>
+      <button class="add-cart">Agregar</button>
+    </div>
 
-    <section id="figuras" class="productos">
-      <h2>Figuras</h2>
-      <div class="producto" data-nombre="Figura Mario" data-precio="40">
-        <img src="figura-mario.jpg" alt="Figura Mario" class="producto-img" />
-        <span>Figura Mario - $40</span>
-        <button class="add-cart">Agregar</button>
-      </div>
-      <div class="producto" data-nombre="Figura Link" data-precio="45">
-        <img src="figura-link.jpg" alt="Figura Link" class="producto-img" />
-        <span>Figura Link - $45</span>
-        <button class="add-cart">Agregar</button>
-      </div>
-      <!-- Agrega más figuras -->
-    </section>
+    <div class="producto" data-nombre="Minecraft" data-precio="60">
+      <img src="minecraft.jpg" alt="Minecraft" />
+      <div class="producto-info">Minecraft - $60</div>
+      <button class="add-cart">Agregar</button>
+    </div>
+
+    <div class="producto" data-nombre="FIFA 23" data-precio="50">
+      <img src="fifa23.jpg" alt="FIFA 23" />
+      <div class="producto-info">FIFA 23 - $50</div>
+      <button class="add-cart">Agregar</button>
+    </div>
+
+    <div class="producto" data-nombre="Mario Kart 8" data-precio="55">
+      <img src="mariokart8.jpg" alt="Mario Kart 8" />
+      <div class="producto-info">Mario Kart 8 - $55</div>
+      <button class="add-cart">Agregar</button>
+    </div>
   </main>
 
-  <!-- Modal de autenticación -->
+  <!-- Modal Login -->
   <div id="auth-modal" class="modal">
     <div class="modal-content">
-      <span id="close-modal">&times;</span>
-      <h2>Inicia sesión o regístrate</h2>
-      <button id="google-login">Google</button>
-      <button id="facebook-login">Facebook</button>
+      <span id="close-modal" class="close-btn">&times;</span>
+      <h2>Iniciar Sesión</h2>
+      <button id="google-login">Con Google</button>
+      <button id="facebook-login">Con Facebook</button>
     </div>
   </div>
 
-  <!-- Modal del carrito -->
+  <!-- Modal Carrito -->
   <div id="cart-modal" class="modal">
     <div class="modal-content">
-      <span id="close-cart">&times;</span>
+      <span id="close-cart" class="close-btn">&times;</span>
       <h2>Carrito de Compras</h2>
       <ul id="cart-items"></ul>
-      <p>Total: $<span id="cart-total">0</span></p>
+      <p>Total: $<span id="cart-total">0.00</span></p>
     </div>
   </div>
 
+  <!-- Firebase JS -->
   <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth-compat.js"></script>
-  <script src="script.js"></script>
+
+  <script>
+    // Configuración Firebase (tu config)
+    const firebaseConfig = {
+      apiKey: "AIzaSyCrmASYryA6pNkzSVG4mRfLAH-iUtm0V5w",
+      authDomain: "forgamersline-fd83c.firebaseapp.com",
+      projectId: "forgamersline-fd83c",
+      storageBucket: "forgamersline-fd83c.appspot.com",
+      messagingSenderId: "803913800026",
+      appId: "1:803913800026:web:e9540ea527d7b571ecbb63"
+    };
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+
+    // Botones abrir modales
+    document.getElementById("login-btn").onclick = () => {
+      document.getElementById("auth-modal").style.display = "flex";
+    };
+    document.getElementById("signup-btn").onclick = () => {
+      document.getElementById("auth-modal").style.display = "flex";
+    };
+
+    // Botones cerrar modales
+    document.getElementById("close-modal").onclick = () => {
+      document.getElementById("auth-modal").style.display = "none";
+    };
+    document.getElementById("close-cart").onclick = () => {
+      document.getElementById("cart-modal").style.display = "none";
+    };
+
+    // Login Google
+    document.getElementById("google-login").onclick = () => {
+      const provider = new firebase.auth.GoogleAuthProvider();
+      auth.signInWithPopup(provider)
+        .then(result => alert(`Bienvenido, ${result.user.displayName}`))
+        .catch(err => alert("Error: " + err.message));
+    };
+
+    // Login Facebook
+    document.getElementById("facebook-login").onclick = () => {
+      const provider = new firebase.auth.FacebookAuthProvider();
+      auth.signInWithPopup(provider)
+        .then(result => alert(`Bienvenido, ${result.user.displayName}`))
+        .catch(err => alert("Error: " + err.message));
+    };
+
+    // Carrito
+    let carrito = [];
+    const actualizarCarrito = () => {
+      const lista = document.getElementById("cart-items");
+      const total = document.getElementById("cart-total");
+      const count = document.getElementById("cart-count");
+      lista.innerHTML = "";
+      let suma = 0;
+
+      carrito.forEach((item, index) => {
+        const li = document.createElement("li");
+        li.textContent = `${item.nombre} - $${item.precio}`;
+
+        // Botón para quitar producto
+        const quitarBtn = document.createElement("button");
+        quitarBtn.textContent = "❌ Quitar";
+        quitarBtn.onclick = () => {
+          carrito.splice(index, 1);
+          actualizarCarrito();
+        };
+
+        li.appendChild(quitarBtn);
+        lista.appendChild(li);
+        suma += item.precio;
+      });
+
+      total.textContent = suma.toFixed(2);
+      count.textContent = carrito.length;
+    };
+
+    document.querySelectorAll(".add-cart").forEach(btn => {
+      btn.addEventListener("click", e => {
+        const producto = e.target.parentElement;
+        const nombre = producto.getAttribute("data-nombre");
+        const precio = parseFloat(producto.getAttribute("data-precio"));
+        carrito.push({ nombre, precio });
+        actualizarCarrito();
+      });
+    });
+
+    document.getElementById("cart-btn").onclick = () => {
+      document.getElementById("cart-modal").style.display = "flex";
+    };
+  </script>
 </body>
 </html>
