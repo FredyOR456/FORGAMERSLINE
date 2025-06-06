@@ -5,120 +5,156 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>FORGAMERSLINE</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="estilos.css" />
 </head>
 <body>
   <header>
     <div class="logo-container">
-      <img src="logo.png" alt="Logo FORGAMERSLINE" class="logo" />
-      <p class="slogan">Vive rápido, juega sin miedo</p>
+      <img src="logo.png" alt="Logo Forgamersline" class="logo" />
+      <div class="slogan">Tu tienda gamer favorita</div>
     </div>
     <nav>
       <button id="login-btn">Iniciar Sesión</button>
       <button id="signup-btn">Registrarse</button>
-      <button id="cart-btn">🛒 Carrito (<span id="cart-count">0</span>)</button>
-      <button id="hamburger-btn" class="hamburger">&#9776;</button>
+      <button id="cart-btn">Carrito (<span id="cart-count">0</span>)</button>
     </nav>
   </header>
 
-  <aside class="sidebar" id="sidebar">
-    <ul>
-      <li><a href="#videojuegos">Videojuegos</a></li>
-      <li><a href="#consolas">Consolas</a></li>
-      <li><a href="#controles">Controles</a></li>
-      <li><a href="#figuras">Figuras</a></li>
-    </ul>
+  <aside>
+    <h2>Categorías</h2>
+    <nav>
+      <a href="#videojuegos">Videojuegos</a>
+      <a href="#consolas">Consolas</a>
+      <a href="#controles">Controles</a>
+      <a href="#figuras">Figuras</a>
+    </nav>
   </aside>
 
   <main>
-    <section id="videojuegos" class="productos">
+    <section id="videojuegos">
       <h2>Videojuegos</h2>
-      <div class="producto" data-nombre="Minecraft" data-precio="60">
-        <img src="Minecraft.jpg" alt="Minecraft" class="producto-img" />
-        <span>Minecraft - $60</span>
-        <button class="add-cart">Agregar</button>
+      <div class="producto" data-nombre="The Legend of Zelda: Breath of the Wild" data-precio="59.99">
+        <img src="img/zelda.jpg" alt="The Legend of Zelda" class="producto-img" />
+        <div>
+          <h3>The Legend of Zelda: Breath of the Wild</h3>
+          <p>Aventura épica en mundo abierto</p>
+          <p>$59.99</p>
+        </div>
+        <button class="add-cart">Agregar al carrito</button>
       </div>
-      <div class="producto" data-nombre="Call of Duty" data-precio="70">
-        <img src="cod.jpg" alt="Call of Duty" class="producto-img" />
-        <span>Call of Duty - $70</span>
-        <button class="add-cart">Agregar</button>
+      <div class="producto" data-nombre="Cyberpunk 2077" data-precio="39.99">
+        <img src="img/cyberpunk.jpg" alt="Cyberpunk 2077" class="producto-img" />
+        <div>
+          <h3>Cyberpunk 2077</h3>
+          <p>RPG futurista de mundo abierto</p>
+          <p>$39.99</p>
+        </div>
+        <button class="add-cart">Agregar al carrito</button>
       </div>
-      <div class="producto" data-nombre="FIFA 2025" data-precio="65">
-        <img src="fifa2025.jpg" alt="FIFA 2025" class="producto-img" />
-        <span>FIFA 2025 - $65</span>
-        <button class="add-cart">Agregar</button>
+      <div class="producto" data-nombre="FIFA 24" data-precio="49.99">
+        <img src="img/fifa24.jpg" alt="FIFA 24" class="producto-img" />
+        <div>
+          <h3>FIFA 24</h3>
+          <p>Simulador de fútbol realista</p>
+          <p>$49.99</p>
+        </div>
+        <button class="add-cart">Agregar al carrito</button>
       </div>
-      <!-- Agrega más videojuegos aquí -->
+      <!-- Más videojuegos aquí -->
     </section>
 
-    <section id="consolas" class="productos">
+    <section id="consolas">
       <h2>Consolas</h2>
-      <div class="producto" data-nombre="PlayStation 5" data-precio="500">
-        <img src="ps5.jpg" alt="PlayStation 5" class="producto-img" />
-        <span>PlayStation 5 - $500</span>
-        <button class="add-cart">Agregar</button>
+      <div class="producto" data-nombre="PlayStation 5" data-precio="499.99">
+        <img src="img/ps5.jpg" alt="PlayStation 5" class="producto-img" />
+        <div>
+          <h3>PlayStation 5</h3>
+          <p>Consola de última generación</p>
+          <p>$499.99</p>
+        </div>
+        <button class="add-cart">Agregar al carrito</button>
       </div>
-      <div class="producto" data-nombre="Xbox Series X" data-precio="480">
-        <img src="xbox-series-x.jpg" alt="Xbox Series X" class="producto-img" />
-        <span>Xbox Series X - $480</span>
-        <button class="add-cart">Agregar</button>
+      <div class="producto" data-nombre="Nintendo Switch" data-precio="299.99">
+        <img src="img/switch.jpg" alt="Nintendo Switch" class="producto-img" />
+        <div>
+          <h3>Nintendo Switch</h3>
+          <p>Consola híbrida portátil</p>
+          <p>$299.99</p>
+        </div>
+        <button class="add-cart">Agregar al carrito</button>
       </div>
-      <!-- Agrega más consolas -->
+      <!-- Más consolas aquí -->
     </section>
 
-    <section id="controles" class="productos">
+    <section id="controles">
       <h2>Controles</h2>
-      <div class="producto" data-nombre="Control Xbox" data-precio="70">
-        <img src="control-xbox.jpg" alt="Control Xbox" class="producto-img" />
-        <span>Control Xbox - $70</span>
-        <button class="add-cart">Agregar</button>
+      <div class="producto" data-nombre="Control Xbox Series X" data-precio="59.99">
+        <img src="img/control-xbox.jpg" alt="Control Xbox" class="producto-img" />
+        <div>
+          <h3>Control Xbox Series X</h3>
+          <p>Control inalámbrico oficial Xbox</p>
+          <p>$59.99</p>
+        </div>
+        <button class="add-cart">Agregar al carrito</button>
       </div>
-      <div class="producto" data-nombre="Control PS5" data-precio="75">
-        <img src="control-ps5.jpg" alt="Control PS5" class="producto-img" />
-        <span>Control PS5 - $75</span>
-        <button class="add-cart">Agregar</button>
+      <div class="producto" data-nombre="Control PS5 DualSense" data-precio="69.99">
+        <img src="img/control-ps5.jpg" alt="Control PS5" class="producto-img" />
+        <div>
+          <h3>Control PS5 DualSense</h3>
+          <p>Control inalámbrico con hápticos</p>
+          <p>$69.99</p>
+        </div>
+        <button class="add-cart">Agregar al carrito</button>
       </div>
-      <!-- Agrega más controles -->
+      <!-- Más controles aquí -->
     </section>
 
-    <section id="figuras" class="productos">
+    <section id="figuras">
       <h2>Figuras</h2>
-      <div class="producto" data-nombre="Figura Mario" data-precio="40">
-        <img src="figura-mario.jpg" alt="Figura Mario" class="producto-img" />
-        <span>Figura Mario - $40</span>
-        <button class="add-cart">Agregar</button>
+      <div class="producto" data-nombre="Figura Link" data-precio="29.99">
+        <img src="img/figura-link.jpg" alt="Figura Link" class="producto-img" />
+        <div>
+          <h3>Figura Link</h3>
+          <p>Figura coleccionable de Zelda</p>
+          <p>$29.99</p>
+        </div>
+        <button class="add-cart">Agregar al carrito</button>
       </div>
-      <div class="producto" data-nombre="Figura Link" data-precio="45">
-        <img src="figura-link.jpg" alt="Figura Link" class="producto-img" />
-        <span>Figura Link - $45</span>
-        <button class="add-cart">Agregar</button>
+      <div class="producto" data-nombre="Figura Mario" data-precio="24.99">
+        <img src="img/figura-mario.jpg" alt="Figura Mario" class="producto-img" />
+        <div>
+          <h3>Figura Mario</h3>
+          <p>Figura coleccionable Mario Bros</p>
+          <p>$24.99</p>
+        </div>
+        <button class="add-cart">Agregar al carrito</button>
       </div>
-      <!-- Agrega más figuras -->
+      <!-- Más figuras aquí -->
     </section>
   </main>
 
-  <!-- Modal de autenticación -->
-  <div id="auth-modal" class="modal">
-    <div class="modal-content">
-      <span id="close-modal">&times;</span>
-      <h2>Inicia sesión o regístrate</h2>
-      <button id="google-login">Google</button>
-      <button id="facebook-login">Facebook</button>
-    </div>
-  </div>
-
-  <!-- Modal del carrito -->
+  <!-- MODAL CARRITO -->
   <div id="cart-modal" class="modal">
     <div class="modal-content">
       <span id="close-cart">&times;</span>
-      <h2>Carrito de Compras</h2>
+      <h3>Tu carrito</h3>
       <ul id="cart-items"></ul>
       <p>Total: $<span id="cart-total">0</span></p>
     </div>
   </div>
 
-  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth-compat.js"></script>
-  <script src="script.js"></script>
+  <!-- MODAL AUTENTICACIÓN -->
+  <div id="auth-modal" class="modal">
+    <div class="modal-content">
+      <span id="close-modal">&times;</span>
+      <h3>Iniciar sesión o Registrarse</h3>
+      <button id="google-login">Iniciar sesión con Google</button>
+      <button id="facebook-login">Iniciar sesión con Facebook</button>
+    </div>
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
