@@ -193,3 +193,37 @@ button.add-cart:hover {
   cursor: pointer;
   border-radius: 4px;
 }
+
+/* NUEVA SECCIÓN CATEGORÍAS */
+.categorias {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.categoria-lista {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+  margin-top: 15px;
+}
+
+.categoria {
+  background: rgba(107, 13, 173, 0.7);
+  padding: 15px 25px;
+  border-radius: 12px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  cursor: pointer;
+  color: white;
+  box-shadow:
+    0 0 10px #9B30FF,
+    0 0 20px #BA55D3;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  user-select: none;
+}
+
+.categoria:hover {
+  background: #9B30FF;
+  transform: scale(1.05);
+}
