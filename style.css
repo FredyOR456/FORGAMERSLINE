@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
 
+/* ANIMACIÓN DE FONDO */
 body {
   font-family: 'Orbitron', sans-serif;
   margin: 0;
   padding: 0;
-  /* Fondo negro con gradiente morado animado */
   background: linear-gradient(270deg, #4B0082, #2E0854, #6A0DAD);
   background-size: 600% 600%;
   animation: gradientBG 15s ease infinite;
@@ -12,19 +12,14 @@ body {
 }
 
 @keyframes gradientBG {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
+/* HEADER */
 header {
-  background-color: #4B0082; /* morado oscuro */
+  background-color: #4B0082;
   color: white;
   padding: 15px;
   display: flex;
@@ -38,7 +33,7 @@ header {
   text-align: center;
 }
 
-/* Logo con animación pulse */
+/* LOGO CON ANIMACIÓN */
 .logo {
   max-height: 80px;
   display: block;
@@ -61,9 +56,8 @@ header {
   }
 }
 
-/* Texto con efecto neón morado */
+/* TEXTO NEÓN */
 .slogan, h1, h2, h3 {
-  font-size: 1rem;
   font-weight: bold;
   margin-top: 5px;
   color: white;
@@ -74,7 +68,7 @@ header {
     0 0 40px #DA70D6;
 }
 
-/* Nav con botones morados glow */
+/* NAV BOTONES */
 nav {
   display: flex;
   gap: 10px;
@@ -88,13 +82,15 @@ nav button {
   border-radius: 5px;
   cursor: pointer;
   font-weight: bold;
-  transition: box-shadow 0.3s ease;
+  transition: box-shadow 0.3s ease, transform 0.2s;
 }
 
 nav button:hover {
   box-shadow: 0 0 15px #9B30FF, 0 0 30px #BA55D3;
+  transform: scale(1.05);
 }
 
+/* CONTENIDO PRINCIPAL */
 main {
   padding: 20px;
 }
@@ -103,34 +99,58 @@ main {
   margin-bottom: 30px;
 }
 
+/* PRODUCTOS */
 .producto {
-  margin: 10px 0;
+  margin: 20px 0;
   padding: 15px;
   border: 1px solid #9B30FF;
-  border-radius: 5px;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.6);
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  gap: 20px;
   color: white;
   text-shadow:
     0 0 3px #9B30FF,
     0 0 6px #BA55D3;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+.producto:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 20px #9B30FF;
+}
+
+/* IMÁGENES DE PRODUCTOS */
+.producto-img {
+  width: 100px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #9B30FF;
+  transition: transform 0.3s;
+}
+
+.producto-img:hover {
+  transform: scale(1.1);
+}
+
+/* BOTÓN DE CARRITO */
 button.add-cart {
   background-color: #6A0DAD;
   color: white;
-  padding: 5px 10px;
+  padding: 8px 12px;
   border: none;
-  border-radius: 4px;
+  border-radius: 5px;
   cursor: pointer;
-  transition: box-shadow 0.3s ease;
+  transition: box-shadow 0.3s ease, transform 0.2s;
 }
 
 button.add-cart:hover {
   box-shadow: 0 0 10px #9B30FF, 0 0 20px #BA55D3;
+  transform: scale(1.05);
 }
 
+/* MODALES */
 .modal {
   display: none;
   position: fixed;
@@ -173,4 +193,3 @@ button.add-cart:hover {
   cursor: pointer;
   border-radius: 4px;
 }
-
