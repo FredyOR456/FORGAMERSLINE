@@ -20,10 +20,9 @@
     </nav>
   </header>
 
-  <main>
-
-    <!-- Nueva sección de categorías -->
-    <section class="categorias">
+  <div class="container">
+    <!-- Sidebar lateral con categorías -->
+    <aside class="sidebar">
       <h2>Categorías</h2>
       <div class="categoria-lista">
         <div class="categoria" data-categoria="Videojuegos">🎮 Videojuegos</div>
@@ -31,41 +30,41 @@
         <div class="categoria" data-categoria="Controles">🎲 Controles</div>
         <div class="categoria" data-categoria="Figuras">🧸 Figuras</div>
       </div>
-    </section>
+    </aside>
 
-    <section class="productos">
-      <h2>Tienda de Videojuegos y Accesorios</h2>
+    <!-- Contenido principal -->
+    <main>
+      <section class="productos">
+        <h2>Tienda de Videojuegos y Accesorios</h2>
 
-      <!-- Producto PS5 -->
-      <div class="producto" data-nombre="PS5" data-precio="500" data-categoria="Consolas">
-        <img src="ps5.jpg" alt="PlayStation 5" class="producto-img" />
-        <span>PlayStation 5 - $500</span>
-        <button class="add-cart">Agregar</button>
-      </div>
+        <div class="producto" data-nombre="PS5" data-precio="500" data-categoria="Consolas">
+          <img src="ps5.jpg" alt="PlayStation 5" class="producto-img" />
+          <span>PlayStation 5 - $500</span>
+          <button class="add-cart">Agregar</button>
+        </div>
 
-      <!-- Producto Control Xbox -->
-      <div class="producto" data-nombre="Control Xbox" data-precio="70" data-categoria="Controles">
-        <img src="control-xbox.jpg" alt="Control Xbox" class="producto-img" />
-        <span>Control Xbox - $70</span>
-        <button class="add-cart">Agregar</button>
-      </div>
+        <div class="producto" data-nombre="Control Xbox" data-precio="70" data-categoria="Controles">
+          <img src="control-xbox.jpg" alt="Control Xbox" class="producto-img" />
+          <span>Control Xbox - $70</span>
+          <button class="add-cart">Agregar</button>
+        </div>
 
-      <!-- Producto Minecraft -->
-      <div class="producto" data-nombre="Minecraft" data-precio="60" data-categoria="Videojuegos">
-        <img src="Minecraft.jpg" alt="Minecraft" class="producto-img" />
-        <span>Minecraft - $60</span>
-        <button class="add-cart">Agregar</button>
-      </div>
-    </section>
+        <div class="producto" data-nombre="Minecraft" data-precio="60" data-categoria="Videojuegos">
+          <img src="Minecraft.jpg" alt="Minecraft" class="producto-img" />
+          <span>Minecraft - $60</span>
+          <button class="add-cart">Agregar</button>
+        </div>
+      </section>
 
-    <section class="info">
-      <h2>Misión</h2>
-      <p>Brindar a los jugadores una tienda confiable y especializada en videojuegos y accesorios de última generación.</p>
+      <section class="info">
+        <h2>Misión</h2>
+        <p>Brindar a los jugadores una tienda confiable y especializada en videojuegos y accesorios de última generación.</p>
 
-      <h2>Visión</h2>
-      <p>Ser la tienda líder en Latinoamérica en la venta de productos gamer, ofreciendo calidad, innovación y comunidad.</p>
-    </section>
-  </main>
+        <h2>Visión</h2>
+        <p>Ser la tienda líder en Latinoamérica en la venta de productos gamer, ofreciendo calidad, innovación y comunidad.</p>
+      </section>
+    </main>
+  </div>
 
   <!-- Modal de autenticación -->
   <div id="auth-modal" class="modal">
