@@ -1,12 +1,11 @@
-/* Fuente gamer importada */
 @import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
 
 body {
   font-family: 'Orbitron', sans-serif;
   margin: 0;
   padding: 0;
-  /* Fondo con gradiente animado */
-  background: linear-gradient(270deg, #0ccac4, #008080, #00ffff);
+  /* Fondo negro con gradiente morado animado */
+  background: linear-gradient(270deg, #4B0082, #2E0854, #6A0DAD);
   background-size: 600% 600%;
   animation: gradientBG 15s ease infinite;
   color: white;
@@ -25,7 +24,7 @@ body {
 }
 
 header {
-  background-color: #0ccac4;
+  background-color: #4B0082; /* morado oscuro */
   color: white;
   padding: 15px;
   display: flex;
@@ -50,32 +49,32 @@ header {
 @keyframes pulse {
   0% {
     transform: scale(1);
-    filter: drop-shadow(0 0 5px #0ccac4);
+    filter: drop-shadow(0 0 5px #6A0DAD);
   }
   50% {
     transform: scale(1.05);
-    filter: drop-shadow(0 0 15px #0ccac4);
+    filter: drop-shadow(0 0 15px #9B30FF);
   }
   100% {
     transform: scale(1);
-    filter: drop-shadow(0 0 5px #0ccac4);
+    filter: drop-shadow(0 0 5px #6A0DAD);
   }
 }
 
-/* Texto con efecto neón para slogan o títulos */
+/* Texto con efecto neón morado */
 .slogan, h1, h2, h3 {
   font-size: 1rem;
   font-weight: bold;
   margin-top: 5px;
   color: white;
   text-shadow:
-    0 0 5px #0ccac4,
-    0 0 10px #0ccac4,
-    0 0 20px #0ccac4,
-    0 0 40px #00ffff;
+    0 0 5px #9B30FF,
+    0 0 10px #9B30FF,
+    0 0 20px #BA55D3,
+    0 0 40px #DA70D6;
 }
 
-/* Nav con botones gamer glow */
+/* Nav con botones morados glow */
 nav {
   display: flex;
   gap: 10px;
@@ -84,7 +83,7 @@ nav {
 nav button {
   padding: 10px 20px;
   border: none;
-  background-color: #0ccac4;
+  background-color: #6A0DAD;
   color: white;
   border-radius: 5px;
   cursor: pointer;
@@ -93,8 +92,85 @@ nav button {
 }
 
 nav button:hover {
-  box-shadow: 0 0 15px #0ccac4, 0 0 30px #0ccac4;
+  box-shadow: 0 0 15px #9B30FF, 0 0 30px #BA55D3;
 }
 
 main {
-  padding: 2
+  padding: 20px;
+}
+
+.productos, .info {
+  margin-bottom: 30px;
+}
+
+.producto {
+  margin: 10px 0;
+  padding: 15px;
+  border: 1px solid #9B30FF;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  text-shadow:
+    0 0 3px #9B30FF,
+    0 0 6px #BA55D3;
+}
+
+button.add-cart {
+  background-color: #6A0DAD;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease;
+}
+
+button.add-cart:hover {
+  box-shadow: 0 0 10px #9B30FF, 0 0 20px #BA55D3;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.8);
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-content {
+  background: #1a001a;
+  color: #9B30FF;
+  padding: 20px;
+  border-radius: 10px;
+  width: 300px;
+  position: relative;
+  box-shadow:
+    0 0 10px #9B30FF,
+    0 0 20px #DA70D6;
+}
+
+#close-modal, #close-cart {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 20px;
+  cursor: pointer;
+  color: #BA55D3;
+}
+
+#cart-items button {
+  background-color: #9B30FF;
+  color: white;
+  border: none;
+  padding: 4px 8px;
+  margin-left: 10px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
