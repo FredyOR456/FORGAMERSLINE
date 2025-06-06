@@ -14,6 +14,7 @@
       <p class="slogan">Vive rápido, juega sin miedo</p>
     </div>
     <nav>
+      <button id="menu-toggle" aria-label="Mostrar menú">&#9776;</button>
       <button id="login-btn">Iniciar Sesión</button>
       <button id="signup-btn">Registrarse</button>
       <button id="cart-btn">🛒 Carrito (<span id="cart-count">0</span>)</button>
@@ -21,44 +22,54 @@
   </header>
 
   <div class="container">
-    <!-- Menú lateral -->
-    <aside class="sidebar">
-      <h2>Categorías</h2>
-      <div class="categoria-lista">
-        <div class="categoria active" data-categoria="todos">Todos</div>
-        <div class="categoria" data-categoria="videojuegos">🎮 Videojuegos</div>
-        <div class="categoria" data-categoria="consolas">🕹️ Consolas</div>
-        <div class="categoria" data-categoria="controles">🎲 Controles</div>
-        <div class="categoria" data-categoria="figuras">🧸 Figuras</div>
-      </div>
+    <aside class="menu-lateral" id="menu-lateral">
+      <h3>Categorías</h3>
+      <ul>
+        <li><button class="categoria active" data-categoria="todos">Todos</button></li>
+        <li><button class="categoria" data-categoria="Videojuegos">Videojuegos</button></li>
+        <li><button class="categoria" data-categoria="Consolas">Consolas</button></li>
+        <li><button class="categoria" data-categoria="Controles">Controles</button></li>
+        <li><button class="categoria" data-categoria="Figuras">Figuras</button></li>
+      </ul>
     </aside>
 
-    <!-- Contenido principal -->
     <main>
-      <section class="productos">
+      <section class="productos" id="productos">
         <h2>Tienda de Videojuegos y Accesorios</h2>
 
-        <div class="producto" data-categoria="consolas">
+        <div class="producto" data-nombre="PS5" data-precio="500" data-categoria="Consolas">
           <img src="ps5.jpg" alt="PlayStation 5" class="producto-img" />
           <span>PlayStation 5 - $500</span>
           <button class="add-cart">Agregar</button>
         </div>
 
-        <div class="producto" data-categoria="controles">
+        <div class="producto" data-nombre="Control Xbox" data-precio="70" data-categoria="Controles">
           <img src="control-xbox.jpg" alt="Control Xbox" class="producto-img" />
           <span>Control Xbox - $70</span>
           <button class="add-cart">Agregar</button>
         </div>
 
-        <div class="producto" data-categoria="videojuegos">
-          <img src="minecraft.jpg" alt="Minecraft" class="producto-img" />
+        <div class="producto" data-nombre="Minecraft" data-precio="60" data-categoria="Videojuegos">
+          <img src="Minecraft.jpg" alt="Minecraft" class="producto-img" />
           <span>Minecraft - $60</span>
           <button class="add-cart">Agregar</button>
         </div>
 
-        <div class="producto" data-categoria="figuras">
-          <img src="figura.jpg" alt="Figura Gamer" class="producto-img" />
-          <span>Figura Gamer - $30</span>
+        <div class="producto" data-nombre="Figura Mario" data-precio="35" data-categoria="Figuras">
+          <img src="figura-mario.jpg" alt="Figura Mario" class="producto-img" />
+          <span>Figura Mario - $35</span>
+          <button class="add-cart">Agregar</button>
+        </div>
+
+        <div class="producto" data-nombre="Xbox Series X" data-precio="550" data-categoria="Consolas">
+          <img src="xbox-series-x.jpg" alt="Xbox Series X" class="producto-img" />
+          <span>Xbox Series X - $550</span>
+          <button class="add-cart">Agregar</button>
+        </div>
+
+        <div class="producto" data-nombre="Control PS5" data-precio="75" data-categoria="Controles">
+          <img src="control-ps5.jpg" alt="Control PS5" class="producto-img" />
+          <span>Control PS5 - $75</span>
           <button class="add-cart">Agregar</button>
         </div>
       </section>
@@ -73,30 +84,29 @@
     </main>
   </div>
 
-  <!-- Scripts -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const categorias = document.querySelectorAll('.categoria');
-      const productos = document.querySelectorAll('.producto');
+  <!-- Modal de autenticación -->
+  <div id="auth-modal" class="modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-content">
+      <span id="close-modal" role="button" aria-label="Cerrar modal">&times;</span>
+      <h2>Inicia sesión o regístrate</h2>
+      <button id="google-login">Google</button>
+      <button id="facebook-login">Facebook</button>
+    </div>
+  </div>
 
-      categorias.forEach(categoria => {
-        categoria.addEventListener('click', () => {
-          // Cambiar clase activa
-          categorias.forEach(c => c.classList.remove('active'));
-          categoria.classList.add('active');
+  <!-- Modal del carrito -->
+  <div id="cart-modal" class="modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-content">
+      <span id="close-cart" role="button" aria-label="Cerrar carrito">&times;</span>
+      <h2>Carrito de Compras</h2>
+      <ul id="cart-items"></ul>
+      <p>Total: $<span id="cart-total">0</span></p>
+    </div>
+  </div>
 
-          const categoriaSeleccionada = categoria.getAttribute('data-categoria');
-
-          productos.forEach(producto => {
-            if (categoriaSeleccionada === 'todos' || producto.getAttribute('data-categoria') === categoriaSeleccionada) {
-              producto.style.display = 'flex';
-            } else {
-              producto.style.display = 'none';
-            }
-          });
-        });
-      });
-    });
-  </script>
+  <!-- Firebase (versión compat) -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth-compat.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
