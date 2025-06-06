@@ -1,9 +1,11 @@
 const firebaseConfig = {
-  apiKey: "TU_API_KEY",
-  authDomain: "TU_DOMINIO.firebaseapp.com",
-  projectId: "TU_ID",
-  appId: "TU_APP_ID"
-};
+    apiKey: "AIzaSyCrmASYryA6pNkzSVG4mRfLAH-iUtm0V5w",
+    authDomain: "forgamersline-fd83c.firebaseapp.com",
+    projectId: "forgamersline-fd83c",
+    storageBucket: "forgamersline-fd83c.firebasestorage.app",
+    messagingSenderId: "803913800026",
+    appId: "1:803913800026:web:e9540ea527d7b571ecbb63"
+  };
 firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
 document.getElementById("login-btn").onclick = () => {
