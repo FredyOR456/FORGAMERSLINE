@@ -72,6 +72,7 @@ header {
 nav {
   display: flex;
   gap: 10px;
+  align-items: center;
 }
 
 nav button {
@@ -90,73 +91,90 @@ nav button:hover {
   transform: scale(1.05);
 }
 
-/* CONTENEDOR PRINCIPAL CON SIDEBAR Y MAIN */
+/* BOTÓN MENÚ HAMBURGUESA */
+#menu-toggle {
+  display: none;
+  background: #6A0DAD;
+  border: none;
+  color: white;
+  font-size: 26px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease;
+}
+
+#menu-toggle:hover {
+  box-shadow: 0 0 15px #9B30FF, 0 0 30px #BA55D3;
+}
+
+/* CONTENIDO GENERAL */
 .container {
   display: flex;
+  margin-top: 20px;
   gap: 20px;
-  padding: 20px;
+  padding: 0 20px 20px;
 }
 
-/* SIDEBAR */
-.sidebar {
-  background: rgba(0, 0, 0, 0.6);
-  border: 1px solid #9B30FF;
+/* MENÚ LATERAL */
+.menu-lateral {
+  background-color: #4B0082;
+  padding: 15px;
   border-radius: 10px;
-  width: 200px;
-  padding: 20px;
-  box-shadow: 0 0 15px #9B30FF;
+  width: 220px;
+  color: white;
+  flex-shrink: 0;
 }
 
-.sidebar h2 {
+.menu-lateral h3 {
   margin-top: 0;
-  color: #DA70D6;
   text-align: center;
   text-shadow:
     0 0 5px #9B30FF,
-    0 0 10px #BA55D3;
+    0 0 10px #BA55D3,
+    0 0 15px #DA70D6;
 }
 
-/* LISTA DE CATEGORIAS */
-.categoria-lista {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  margin-top: 15px;
+.menu-lateral ul {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0;
 }
 
-.categoria {
-  padding: 10px;
-  background-color: #6A0DAD;
+.menu-lateral ul li {
+  margin-bottom: 10px;
+}
+
+.menu-lateral button.categoria {
+  width: 100%;
+  background: transparent;
+  border: 2px solid #9B30FF;
+  color: white;
+  padding: 8px;
+  font-weight: bold;
   border-radius: 5px;
   cursor: pointer;
-  font-weight: bold;
-  color: white;
-  text-align: center;
-  transition: box-shadow 0.3s ease, transform 0.2s;
-  user-select: none;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.categoria:hover {
-  box-shadow: 0 0 15px #9B30FF, 0 0 30px #BA55D3;
-  transform: scale(1.05);
-}
-
-/* Categoría activa */
-.categoria.active {
+.menu-lateral button.categoria:hover,
+.menu-lateral button.categoria.active {
   background-color: #9B30FF;
-  box-shadow: 0 0 25px #DA70D6, 0 0 40px #BA55D3;
-  transform: scale(1.1);
+  box-shadow:
+    0 0 10px #9B30FF,
+    0 0 20px #BA55D3;
 }
 
-/* MAIN */
+/* MAIN CONTENIDO */
 main {
   flex: 1;
+  padding: 0 10px;
+  max-width: 1000px;
 }
 
 /* PRODUCTOS */
-.productos h2 {
-  margin-bottom: 20px;
-  text-align: center;
+.productos, .info {
+  margin-bottom: 30px;
 }
 
 .producto {
@@ -209,15 +227,92 @@ button.add-cart:hover {
   transform: scale(1.05);
 }
 
-/* INFO */
-.info {
-  margin-top: 40px;
+/* MODALES */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.8);
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
 }
 
-.info h2 {
-  margin-bottom: 10px;
-  color: #DA70D6;
-  text-shadow:
-    0 0 5px #9B30FF,
-    0 0 10px #BA55D3;
+.modal-content {
+  background: #1a001a;
+  color: #9B30FF;
+  padding: 20px;
+  border-radius: 10px;
+  width: 300px;
+  position: relative;
+  box-shadow:
+    0 0 10px #9B30FF,
+    0 0 20px #DA70D6;
+}
+
+#close-modal, #close-cart {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 20px;
+  cursor: pointer;
+  color: #BA55D3;
+}
+
+#cart-items button {
+  background-color: #9B30FF;
+  color: white;
+  border: none;
+  padding: 4px 8px;
+  margin-left: 10px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+/* RESPONSIVE - MÓVILES */
+@media (max-width: 600px) {
+  header {
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
+
+  nav {
+    gap: 5px;
+  }
+
+  #menu-toggle {
+    display: inline-block;
+  }
+
+  .container {
+    flex-direction: column;
+    padding: 10px;
+    margin-left: 0;
+  }
+
+  .menu-lateral {
+    position: fixed;
+    top: 65px; /* altura del header */
+    left: 0;
+    height: calc(100% - 65px);
+    width: 220px;
+    background-color: #4B0082;
+    padding: 15px;
+    border-radius: 0 0 10px 0;
+    color: white;
+    transform: translateX(-250px);
+    transition: transform 0.3s ease;
+    z-index: 10000;
+  }
+
+  .menu-lateral.menu-visible {
+    transform: translateX(0);
+  }
+
+  main {
+    width: 100%;
+    padding: 10px 0;
+  }
 }
