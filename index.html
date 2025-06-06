@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>FORGAMERSLINE</title>
-  <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
@@ -14,80 +14,93 @@
       <p class="slogan">Vive rápido, juega sin miedo</p>
     </div>
     <nav>
-      <button id="menu-toggle" aria-label="Mostrar menú">&#9776;</button>
       <button id="login-btn">Iniciar Sesión</button>
       <button id="signup-btn">Registrarse</button>
       <button id="cart-btn">🛒 Carrito (<span id="cart-count">0</span>)</button>
+      <button id="hamburger-btn" class="hamburger">&#9776;</button>
     </nav>
   </header>
 
-  <div class="container">
-    <aside class="menu-lateral" id="menu-lateral">
-      <h3>Categorías</h3>
-      <ul>
-        <li><button class="categoria active" data-categoria="todos">Todos</button></li>
-        <li><button class="categoria" data-categoria="Videojuegos">Videojuegos</button></li>
-        <li><button class="categoria" data-categoria="Consolas">Consolas</button></li>
-        <li><button class="categoria" data-categoria="Controles">Controles</button></li>
-        <li><button class="categoria" data-categoria="Figuras">Figuras</button></li>
-      </ul>
-    </aside>
+  <aside class="sidebar" id="sidebar">
+    <ul>
+      <li><a href="#videojuegos">Videojuegos</a></li>
+      <li><a href="#consolas">Consolas</a></li>
+      <li><a href="#controles">Controles</a></li>
+      <li><a href="#figuras">Figuras</a></li>
+    </ul>
+  </aside>
 
-    <main>
-      <section class="productos" id="productos">
-        <h2>Tienda de Videojuegos y Accesorios</h2>
+  <main>
+    <section id="videojuegos" class="productos">
+      <h2>Videojuegos</h2>
+      <div class="producto" data-nombre="Minecraft" data-precio="60">
+        <img src="Minecraft.jpg" alt="Minecraft" class="producto-img" />
+        <span>Minecraft - $60</span>
+        <button class="add-cart">Agregar</button>
+      </div>
+      <div class="producto" data-nombre="Call of Duty" data-precio="70">
+        <img src="cod.jpg" alt="Call of Duty" class="producto-img" />
+        <span>Call of Duty - $70</span>
+        <button class="add-cart">Agregar</button>
+      </div>
+      <div class="producto" data-nombre="FIFA 2025" data-precio="65">
+        <img src="fifa2025.jpg" alt="FIFA 2025" class="producto-img" />
+        <span>FIFA 2025 - $65</span>
+        <button class="add-cart">Agregar</button>
+      </div>
+      <!-- Agrega más videojuegos aquí -->
+    </section>
 
-        <div class="producto" data-nombre="PS5" data-precio="500" data-categoria="Consolas">
-          <img src="ps5.jpg" alt="PlayStation 5" class="producto-img" />
-          <span>PlayStation 5 - $500</span>
-          <button class="add-cart">Agregar</button>
-        </div>
+    <section id="consolas" class="productos">
+      <h2>Consolas</h2>
+      <div class="producto" data-nombre="PlayStation 5" data-precio="500">
+        <img src="ps5.jpg" alt="PlayStation 5" class="producto-img" />
+        <span>PlayStation 5 - $500</span>
+        <button class="add-cart">Agregar</button>
+      </div>
+      <div class="producto" data-nombre="Xbox Series X" data-precio="480">
+        <img src="xbox-series-x.jpg" alt="Xbox Series X" class="producto-img" />
+        <span>Xbox Series X - $480</span>
+        <button class="add-cart">Agregar</button>
+      </div>
+      <!-- Agrega más consolas -->
+    </section>
 
-        <div class="producto" data-nombre="Control Xbox" data-precio="70" data-categoria="Controles">
-          <img src="control-xbox.jpg" alt="Control Xbox" class="producto-img" />
-          <span>Control Xbox - $70</span>
-          <button class="add-cart">Agregar</button>
-        </div>
+    <section id="controles" class="productos">
+      <h2>Controles</h2>
+      <div class="producto" data-nombre="Control Xbox" data-precio="70">
+        <img src="control-xbox.jpg" alt="Control Xbox" class="producto-img" />
+        <span>Control Xbox - $70</span>
+        <button class="add-cart">Agregar</button>
+      </div>
+      <div class="producto" data-nombre="Control PS5" data-precio="75">
+        <img src="control-ps5.jpg" alt="Control PS5" class="producto-img" />
+        <span>Control PS5 - $75</span>
+        <button class="add-cart">Agregar</button>
+      </div>
+      <!-- Agrega más controles -->
+    </section>
 
-        <div class="producto" data-nombre="Minecraft" data-precio="60" data-categoria="Videojuegos">
-          <img src="Minecraft.jpg" alt="Minecraft" class="producto-img" />
-          <span>Minecraft - $60</span>
-          <button class="add-cart">Agregar</button>
-        </div>
-
-        <div class="producto" data-nombre="Figura Mario" data-precio="35" data-categoria="Figuras">
-          <img src="figura-mario.jpg" alt="Figura Mario" class="producto-img" />
-          <span>Figura Mario - $35</span>
-          <button class="add-cart">Agregar</button>
-        </div>
-
-        <div class="producto" data-nombre="Xbox Series X" data-precio="550" data-categoria="Consolas">
-          <img src="xbox-series-x.jpg" alt="Xbox Series X" class="producto-img" />
-          <span>Xbox Series X - $550</span>
-          <button class="add-cart">Agregar</button>
-        </div>
-
-        <div class="producto" data-nombre="Control PS5" data-precio="75" data-categoria="Controles">
-          <img src="control-ps5.jpg" alt="Control PS5" class="producto-img" />
-          <span>Control PS5 - $75</span>
-          <button class="add-cart">Agregar</button>
-        </div>
-      </section>
-
-      <section class="info">
-        <h2>Misión</h2>
-        <p>Brindar a los jugadores una tienda confiable y especializada en videojuegos y accesorios de última generación.</p>
-
-        <h2>Visión</h2>
-        <p>Ser la tienda líder en Latinoamérica en la venta de productos gamer, ofreciendo calidad, innovación y comunidad.</p>
-      </section>
-    </main>
-  </div>
+    <section id="figuras" class="productos">
+      <h2>Figuras</h2>
+      <div class="producto" data-nombre="Figura Mario" data-precio="40">
+        <img src="figura-mario.jpg" alt="Figura Mario" class="producto-img" />
+        <span>Figura Mario - $40</span>
+        <button class="add-cart">Agregar</button>
+      </div>
+      <div class="producto" data-nombre="Figura Link" data-precio="45">
+        <img src="figura-link.jpg" alt="Figura Link" class="producto-img" />
+        <span>Figura Link - $45</span>
+        <button class="add-cart">Agregar</button>
+      </div>
+      <!-- Agrega más figuras -->
+    </section>
+  </main>
 
   <!-- Modal de autenticación -->
-  <div id="auth-modal" class="modal" aria-hidden="true" role="dialog" aria-modal="true">
+  <div id="auth-modal" class="modal">
     <div class="modal-content">
-      <span id="close-modal" role="button" aria-label="Cerrar modal">&times;</span>
+      <span id="close-modal">&times;</span>
       <h2>Inicia sesión o regístrate</h2>
       <button id="google-login">Google</button>
       <button id="facebook-login">Facebook</button>
@@ -95,16 +108,15 @@
   </div>
 
   <!-- Modal del carrito -->
-  <div id="cart-modal" class="modal" aria-hidden="true" role="dialog" aria-modal="true">
+  <div id="cart-modal" class="modal">
     <div class="modal-content">
-      <span id="close-cart" role="button" aria-label="Cerrar carrito">&times;</span>
+      <span id="close-cart">&times;</span>
       <h2>Carrito de Compras</h2>
       <ul id="cart-items"></ul>
       <p>Total: $<span id="cart-total">0</span></p>
     </div>
   </div>
 
-  <!-- Firebase (versión compat) -->
   <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth-compat.js"></script>
   <script src="script.js"></script>
