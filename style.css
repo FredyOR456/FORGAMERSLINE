@@ -1,14 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
 
-/* ANIMACIÓN DE FONDO */
+/* FONDO ANIMADO */
 body {
   font-family: 'Orbitron', sans-serif;
-  margin: 0;
-  padding: 0;
+  margin: 0; padding: 0;
   background: linear-gradient(270deg, #4B0082, #2E0854, #6A0DAD);
   background-size: 600% 600%;
   animation: gradientBG 15s ease infinite;
   color: white;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
 }
 
 @keyframes gradientBG {
@@ -26,6 +28,10 @@ header {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
 }
 
 .logo-container {
@@ -33,16 +39,14 @@ header {
   text-align: center;
 }
 
-/* LOGO CON ANIMACIÓN */
 .logo {
   max-height: 80px;
-  display: block;
   margin: 0 auto;
   animation: pulse 3s infinite;
 }
 
 @keyframes pulse {
-  0% {
+  0%, 100% {
     transform: scale(1);
     filter: drop-shadow(0 0 5px #6A0DAD);
   }
@@ -50,14 +54,9 @@ header {
     transform: scale(1.05);
     filter: drop-shadow(0 0 15px #9B30FF);
   }
-  100% {
-    transform: scale(1);
-    filter: drop-shadow(0 0 5px #6A0DAD);
-  }
 }
 
-/* TEXTO NEÓN */
-.slogan, h1, h2, h3 {
+.slogan {
   font-weight: bold;
   margin-top: 5px;
   color: white;
@@ -68,11 +67,13 @@ header {
     0 0 40px #DA70D6;
 }
 
-/* NAV BOTONES */
+/* NAV EN HEADER */
 nav {
   display: flex;
-  gap: 10px;
   align-items: center;
+  gap: 10px;
+  position: relative;
+  z-index: 1100;
 }
 
 nav button {
@@ -91,90 +92,66 @@ nav button:hover {
   transform: scale(1.05);
 }
 
-/* BOTÓN MENÚ HAMBURGUESA */
-#menu-toggle {
+/* BOTON HAMBURGUESA */
+#hamburger-btn {
   display: none;
-  background: #6A0DAD;
+  font-size: 26px;
+  background: none;
   border: none;
   color: white;
-  font-size: 26px;
-  padding: 5px 10px;
-  border-radius: 5px;
   cursor: pointer;
-  transition: box-shadow 0.3s ease;
+  padding: 0 10px;
 }
 
-#menu-toggle:hover {
-  box-shadow: 0 0 15px #9B30FF, 0 0 30px #BA55D3;
+/* BARRA LATERAL */
+.sidebar {
+  position: fixed;
+  top: 110px; /* debajo del header */
+  left: 0;
+  width: 200px;
+  height: calc(100% - 110px);
+  background-color: #330066cc;
+  padding-top: 20px;
+  box-shadow: 2px 0 8px rgba(0,0,0,0.7);
+  overflow-y: auto;
+  transition: transform 0.3s ease;
 }
 
-/* CONTENIDO GENERAL */
-.container {
-  display: flex;
-  margin-top: 20px;
-  gap: 20px;
-  padding: 0 20px 20px;
+.sidebar ul {
+  list-style: none;
+  padding-left: 0;
 }
 
-/* MENÚ LATERAL */
-.menu-lateral {
-  background-color: #4B0082;
-  padding: 15px;
-  border-radius: 10px;
-  width: 220px;
-  color: white;
-  flex-shrink: 0;
-}
-
-.menu-lateral h3 {
-  margin-top: 0;
+.sidebar ul li {
+  margin-bottom: 15px;
   text-align: center;
+}
+
+.sidebar ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 18px;
   text-shadow:
     0 0 5px #9B30FF,
-    0 0 10px #BA55D3,
-    0 0 15px #DA70D6;
+    0 0 10px #BA55D3;
+  transition: color 0.3s ease;
 }
 
-.menu-lateral ul {
-  list-style: none;
-  padding: 0;
-  margin: 10px 0 0;
+.sidebar ul li a:hover {
+  color: #DA70D6;
 }
 
-.menu-lateral ul li {
-  margin-bottom: 10px;
-}
-
-.menu-lateral button.categoria {
-  width: 100%;
-  background: transparent;
-  border: 2px solid #9B30FF;
-  color: white;
-  padding: 8px;
-  font-weight: bold;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.menu-lateral button.categoria:hover,
-.menu-lateral button.categoria.active {
-  background-color: #9B30FF;
-  box-shadow:
-    0 0 10px #9B30FF,
-    0 0 20px #BA55D3;
-}
-
-/* MAIN CONTENIDO */
+/* CONTENIDO PRINCIPAL */
 main {
-  flex: 1;
-  padding: 0 10px;
-  max-width: 1000px;
+  margin-left: 220px;
+  padding: 130px 20px 40px 20px;
+  flex-grow: 1;
 }
 
 /* PRODUCTOS */
-.productos, .info {
-  margin-bottom: 30px;
+.productos {
+  margin-bottom: 40px;
 }
 
 .producto {
@@ -198,7 +175,6 @@ main {
   box-shadow: 0 0 20px #9B30FF;
 }
 
-/* IMÁGENES DE PRODUCTOS */
 .producto-img {
   width: 100px;
   height: auto;
@@ -211,7 +187,6 @@ main {
   transform: scale(1.1);
 }
 
-/* BOTÓN DE CARRITO */
 button.add-cart {
   background-color: #6A0DAD;
   color: white;
@@ -237,7 +212,7 @@ button.add-cart:hover {
   background: rgba(0,0,0,0.8);
   justify-content: center;
   align-items: center;
-  z-index: 999;
+  z-index: 9999;
 }
 
 .modal-content {
@@ -245,74 +220,59 @@ button.add-cart:hover {
   color: #9B30FF;
   padding: 20px;
   border-radius: 10px;
-  width: 300px;
-  position: relative;
-  box-shadow:
-    0 0 10px #9B30FF,
-    0 0 20px #DA70D6;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
 }
 
-#close-modal, #close-cart {
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  font-size: 20px;
-  cursor: pointer;
-  color: #BA55D3;
-}
-
-#cart-items button {
-  background-color: #9B30FF;
-  color: white;
+.modal-content button {
+  margin: 10px;
+  padding: 10px 20px;
+  border-radius: 5px;
   border: none;
-  padding: 4px 8px;
-  margin-left: 10px;
+  font-weight: bold;
   cursor: pointer;
-  border-radius: 4px;
+  background-color: #6A0DAD;
+  color: white;
+  transition: background-color 0.3s ease;
 }
 
-/* RESPONSIVE - MÓVILES */
-@media (max-width: 600px) {
-  header {
-    flex-wrap: nowrap;
-    justify-content: space-between;
-  }
+.modal-content button:hover {
+  background-color: #9B30FF;
+}
 
-  nav {
-    gap: 5px;
-  }
+.modal-content span {
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  float: right;
+}
 
-  #menu-toggle {
-    display: inline-block;
-  }
+/* SCROLL SUAVE */
+html {
+  scroll-behavior: smooth;
+}
 
-  .container {
-    flex-direction: column;
-    padding: 10px;
-    margin-left: 0;
-  }
-
-  .menu-lateral {
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .sidebar {
     position: fixed;
-    top: 65px; /* altura del header */
+    top: 60px;
     left: 0;
-    height: calc(100% - 65px);
-    width: 220px;
-    background-color: #4B0082;
-    padding: 15px;
-    border-radius: 0 0 10px 0;
-    color: white;
-    transform: translateX(-250px);
-    transition: transform 0.3s ease;
-    z-index: 10000;
+    width: 200px;
+    height: calc(100% - 60px);
+    background-color: #330066cc;
+    transform: translateX(-100%);
+    z-index: 1500;
   }
-
-  .menu-lateral.menu-visible {
+  .sidebar.open {
     transform: translateX(0);
   }
-
   main {
-    width: 100%;
-    padding: 10px 0;
+    margin-left: 0;
+    padding: 80px 15px 40px 15px;
+  }
+  #hamburger-btn {
+    display: block;
   }
 }
