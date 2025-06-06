@@ -5,320 +5,156 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>FORGAMERSLINE</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet" />
-  <style>
-    /* FUENTES Y FONDO ANIMADO */
-    body {
-      font-family: 'Orbitron', sans-serif;
-      background: linear-gradient(270deg, #4B0082, #2E0854, #6A0DAD);
-      background-size: 600% 600%;
-      animation: gradientBG 15s ease infinite;
-      color: white;
-      margin: 0; padding: 0;
-    }
-    @keyframes gradientBG {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
-    /* HEADER */
-    header {
-      background-color: #4B0082;
-      padding: 15px;
-      display: flex;
-      justify-content: flex-end;
-      gap: 15px;
-    }
-    button {
-      background-color: #6A0DAD;
-      border: none;
-      color: white;
-      padding: 10px 20px;
-      font-weight: bold;
-      border-radius: 5px;
-      cursor: pointer;
-      text-transform: uppercase;
-      transition: box-shadow 0.3s ease, transform 0.2s ease;
-    }
-    button:hover {
-      box-shadow: 0 0 15px #9B30FF, 0 0 30px #BA55D3;
-      transform: scale(1.05);
-    }
-
-    /* MODALES */
-    .modal {
-      display: none;
-      position: fixed;
-      top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(0,0,0,0.8);
-      justify-content: center;
-      align-items: center;
-      z-index: 999;
-    }
-    .modal-content {
-      background: #1a001a;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px #9B30FF, 0 0 20px #DA70D6;
-      color: white;
-      width: 320px;
-      position: relative;
-      text-align: center;
-    }
-    .close-btn {
-      position: absolute;
-      top: 10px; right: 15px;
-      font-size: 20px;
-      cursor: pointer;
-      color: #BA55D3;
-      font-weight: bold;
-    }
-
-    /* CARRITO */
-    #cart-items {
-      list-style: none;
-      padding: 0;
-      margin: 15px 0;
-      max-height: 200px;
-      overflow-y: auto;
-      text-align: left;
-    }
-    #cart-items li {
-      margin: 8px 0;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    #cart-items button {
-      background-color: #9B30FF;
-      border: none;
-      color: white;
-      padding: 3px 7px;
-      border-radius: 3px;
-      cursor: pointer;
-      margin-left: 10px;
-    }
-
-    /* PRODUCTOS EJEMPLO */
-    main {
-      padding: 20px;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-    .producto {
-      border: 1px solid #9B30FF;
-      border-radius: 10px;
-      background: rgba(0,0,0,0.6);
-      color: white;
-      padding: 15px;
-      margin-bottom: 15px;
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      box-shadow:
-        0 0 5px #9B30FF,
-        0 0 10px #BA55D3;
-      transition: box-shadow 0.3s ease, transform 0.3s ease;
-    }
-    .producto:hover {
-      box-shadow:
-        0 0 20px #9B30FF,
-        0 0 40px #DA70D6;
-      transform: scale(1.03);
-    }
-    .producto img {
-      width: 120px;
-      height: auto;
-      border-radius: 10px;
-      box-shadow: 0 0 10px #9B30FF;
-      transition: transform 0.3s ease;
-    }
-    .producto img:hover {
-      transform: scale(1.1);
-    }
-    .producto-info {
-      flex: 1;
-      font-size: 1.1rem;
-      font-weight: bold;
-      text-shadow:
-        0 0 5px #9B30FF,
-        0 0 10px #BA55D3;
-    }
-    .add-cart {
-      background-color: #6A0DAD;
-      border: none;
-      color: white;
-      padding: 8px 12px;
-      font-weight: bold;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: box-shadow 0.3s ease, transform 0.2s ease;
-    }
-    .add-cart:hover {
-      box-shadow: 0 0 10px #9B30FF, 0 0 20px #BA55D3;
-      transform: scale(1.05);
-    }
-
-  </style>
+  <link rel="stylesheet" href="estilos.css" />
 </head>
 <body>
-
   <header>
-    <button id="login-btn">Iniciar Sesión</button>
-    <button id="signup-btn">Registrarse</button>
-    <button id="cart-btn">Carrito (<span id="cart-count">0</span>)</button>
+    <div class="logo-container">
+      <img src="logo.png" alt="Logo Forgamersline" class="logo" />
+      <div class="slogan">Tu tienda gamer favorita</div>
+    </div>
+    <nav>
+      <button id="login-btn">Iniciar Sesión</button>
+      <button id="signup-btn">Registrarse</button>
+      <button id="cart-btn">Carrito (<span id="cart-count">0</span>)</button>
+    </nav>
   </header>
 
+  <aside>
+    <h2>Categorías</h2>
+    <nav>
+      <a href="#videojuegos">Videojuegos</a>
+      <a href="#consolas">Consolas</a>
+      <a href="#controles">Controles</a>
+      <a href="#figuras">Figuras</a>
+    </nav>
+  </aside>
+
   <main>
-    <h1 style="text-align:center; text-shadow:
-      0 0 5px #9B30FF,
-      0 0 10px #BA55D3,
-      0 0 20px #DA70D6;">Tienda FORGAMERSLINE</h1>
+    <section id="videojuegos">
+      <h2>Videojuegos</h2>
+      <div class="producto" data-nombre="The Legend of Zelda: Breath of the Wild" data-precio="59.99">
+        <img src="img/zelda.jpg" alt="The Legend of Zelda" class="producto-img" />
+        <div>
+          <h3>The Legend of Zelda: Breath of the Wild</h3>
+          <p>Aventura épica en mundo abierto</p>
+          <p>$59.99</p>
+        </div>
+        <button class="add-cart">Agregar al carrito</button>
+      </div>
+      <div class="producto" data-nombre="Cyberpunk 2077" data-precio="39.99">
+        <img src="img/cyberpunk.jpg" alt="Cyberpunk 2077" class="producto-img" />
+        <div>
+          <h3>Cyberpunk 2077</h3>
+          <p>RPG futurista de mundo abierto</p>
+          <p>$39.99</p>
+        </div>
+        <button class="add-cart">Agregar al carrito</button>
+      </div>
+      <div class="producto" data-nombre="FIFA 24" data-precio="49.99">
+        <img src="img/fifa24.jpg" alt="FIFA 24" class="producto-img" />
+        <div>
+          <h3>FIFA 24</h3>
+          <p>Simulador de fútbol realista</p>
+          <p>$49.99</p>
+        </div>
+        <button class="add-cart">Agregar al carrito</button>
+      </div>
+      <!-- Más videojuegos aquí -->
+    </section>
 
-    <!-- Productos -->
-    <div class="producto" data-nombre="PlayStation 5" data-precio="500">
-      <img src="ps5.jpg" alt="PlayStation 5" />
-      <div class="producto-info">PlayStation 5 - $500</div>
-      <button class="add-cart">Agregar</button>
-    </div>
+    <section id="consolas">
+      <h2>Consolas</h2>
+      <div class="producto" data-nombre="PlayStation 5" data-precio="499.99">
+        <img src="img/ps5.jpg" alt="PlayStation 5" class="producto-img" />
+        <div>
+          <h3>PlayStation 5</h3>
+          <p>Consola de última generación</p>
+          <p>$499.99</p>
+        </div>
+        <button class="add-cart">Agregar al carrito</button>
+      </div>
+      <div class="producto" data-nombre="Nintendo Switch" data-precio="299.99">
+        <img src="img/switch.jpg" alt="Nintendo Switch" class="producto-img" />
+        <div>
+          <h3>Nintendo Switch</h3>
+          <p>Consola híbrida portátil</p>
+          <p>$299.99</p>
+        </div>
+        <button class="add-cart">Agregar al carrito</button>
+      </div>
+      <!-- Más consolas aquí -->
+    </section>
 
-    <div class="producto" data-nombre="Control Xbox" data-precio="70">
-      <img src="control-xbox.jpg" alt="Control Xbox" />
-      <div class="producto-info">Control Xbox - $70</div>
-      <button class="add-cart">Agregar</button>
-    </div>
+    <section id="controles">
+      <h2>Controles</h2>
+      <div class="producto" data-nombre="Control Xbox Series X" data-precio="59.99">
+        <img src="img/control-xbox.jpg" alt="Control Xbox" class="producto-img" />
+        <div>
+          <h3>Control Xbox Series X</h3>
+          <p>Control inalámbrico oficial Xbox</p>
+          <p>$59.99</p>
+        </div>
+        <button class="add-cart">Agregar al carrito</button>
+      </div>
+      <div class="producto" data-nombre="Control PS5 DualSense" data-precio="69.99">
+        <img src="img/control-ps5.jpg" alt="Control PS5" class="producto-img" />
+        <div>
+          <h3>Control PS5 DualSense</h3>
+          <p>Control inalámbrico con hápticos</p>
+          <p>$69.99</p>
+        </div>
+        <button class="add-cart">Agregar al carrito</button>
+      </div>
+      <!-- Más controles aquí -->
+    </section>
 
-    <div class="producto" data-nombre="Minecraft" data-precio="60">
-      <img src="minecraft.jpg" alt="Minecraft" />
-      <div class="producto-info">Minecraft - $60</div>
-      <button class="add-cart">Agregar</button>
-    </div>
-
-    <div class="producto" data-nombre="FIFA 23" data-precio="50">
-      <img src="fifa23.jpg" alt="FIFA 23" />
-      <div class="producto-info">FIFA 23 - $50</div>
-      <button class="add-cart">Agregar</button>
-    </div>
-
-    <div class="producto" data-nombre="Mario Kart 8" data-precio="55">
-      <img src="mariokart8.jpg" alt="Mario Kart 8" />
-      <div class="producto-info">Mario Kart 8 - $55</div>
-      <button class="add-cart">Agregar</button>
-    </div>
+    <section id="figuras">
+      <h2>Figuras</h2>
+      <div class="producto" data-nombre="Figura Link" data-precio="29.99">
+        <img src="img/figura-link.jpg" alt="Figura Link" class="producto-img" />
+        <div>
+          <h3>Figura Link</h3>
+          <p>Figura coleccionable de Zelda</p>
+          <p>$29.99</p>
+        </div>
+        <button class="add-cart">Agregar al carrito</button>
+      </div>
+      <div class="producto" data-nombre="Figura Mario" data-precio="24.99">
+        <img src="img/figura-mario.jpg" alt="Figura Mario" class="producto-img" />
+        <div>
+          <h3>Figura Mario</h3>
+          <p>Figura coleccionable Mario Bros</p>
+          <p>$24.99</p>
+        </div>
+        <button class="add-cart">Agregar al carrito</button>
+      </div>
+      <!-- Más figuras aquí -->
+    </section>
   </main>
 
-  <!-- Modal Login -->
-  <div id="auth-modal" class="modal">
-    <div class="modal-content">
-      <span id="close-modal" class="close-btn">&times;</span>
-      <h2>Iniciar Sesión</h2>
-      <button id="google-login">Con Google</button>
-      <button id="facebook-login">Con Facebook</button>
-    </div>
-  </div>
-
-  <!-- Modal Carrito -->
+  <!-- MODAL CARRITO -->
   <div id="cart-modal" class="modal">
     <div class="modal-content">
-      <span id="close-cart" class="close-btn">&times;</span>
-      <h2>Carrito de Compras</h2>
+      <span id="close-cart">&times;</span>
+      <h3>Tu carrito</h3>
       <ul id="cart-items"></ul>
-      <p>Total: $<span id="cart-total">0.00</span></p>
+      <p>Total: $<span id="cart-total">0</span></p>
     </div>
   </div>
 
-  <!-- Firebase JS -->
-  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth-compat.js"></script>
+  <!-- MODAL AUTENTICACIÓN -->
+  <div id="auth-modal" class="modal">
+    <div class="modal-content">
+      <span id="close-modal">&times;</span>
+      <h3>Iniciar sesión o Registrarse</h3>
+      <button id="google-login">Iniciar sesión con Google</button>
+      <button id="facebook-login">Iniciar sesión con Facebook</button>
+    </div>
+  </div>
 
-  <script>
-    // Configuración Firebase (tu config)
-    const firebaseConfig = {
-      apiKey: "AIzaSyCrmASYryA6pNkzSVG4mRfLAH-iUtm0V5w",
-      authDomain: "forgamersline-fd83c.firebaseapp.com",
-      projectId: "forgamersline-fd83c",
-      storageBucket: "forgamersline-fd83c.appspot.com",
-      messagingSenderId: "803913800026",
-      appId: "1:803913800026:web:e9540ea527d7b571ecbb63"
-    };
-    firebase.initializeApp(firebaseConfig);
-    const auth = firebase.auth();
-
-    // Botones abrir modales
-    document.getElementById("login-btn").onclick = () => {
-      document.getElementById("auth-modal").style.display = "flex";
-    };
-    document.getElementById("signup-btn").onclick = () => {
-      document.getElementById("auth-modal").style.display = "flex";
-    };
-
-    // Botones cerrar modales
-    document.getElementById("close-modal").onclick = () => {
-      document.getElementById("auth-modal").style.display = "none";
-    };
-    document.getElementById("close-cart").onclick = () => {
-      document.getElementById("cart-modal").style.display = "none";
-    };
-
-    // Login Google
-    document.getElementById("google-login").onclick = () => {
-      const provider = new firebase.auth.GoogleAuthProvider();
-      auth.signInWithPopup(provider)
-        .then(result => alert(`Bienvenido, ${result.user.displayName}`))
-        .catch(err => alert("Error: " + err.message));
-    };
-
-    // Login Facebook
-    document.getElementById("facebook-login").onclick = () => {
-      const provider = new firebase.auth.FacebookAuthProvider();
-      auth.signInWithPopup(provider)
-        .then(result => alert(`Bienvenido, ${result.user.displayName}`))
-        .catch(err => alert("Error: " + err.message));
-    };
-
-    // Carrito
-    let carrito = [];
-    const actualizarCarrito = () => {
-      const lista = document.getElementById("cart-items");
-      const total = document.getElementById("cart-total");
-      const count = document.getElementById("cart-count");
-      lista.innerHTML = "";
-      let suma = 0;
-
-      carrito.forEach((item, index) => {
-        const li = document.createElement("li");
-        li.textContent = `${item.nombre} - $${item.precio}`;
-
-        // Botón para quitar producto
-        const quitarBtn = document.createElement("button");
-        quitarBtn.textContent = "❌ Quitar";
-        quitarBtn.onclick = () => {
-          carrito.splice(index, 1);
-          actualizarCarrito();
-        };
-
-        li.appendChild(quitarBtn);
-        lista.appendChild(li);
-        suma += item.precio;
-      });
-
-      total.textContent = suma.toFixed(2);
-      count.textContent = carrito.length;
-    };
-
-    document.querySelectorAll(".add-cart").forEach(btn => {
-      btn.addEventListener("click", e => {
-        const producto = e.target.parentElement;
-        const nombre = producto.getAttribute("data-nombre");
-        const precio = parseFloat(producto.getAttribute("data-precio"));
-        carrito.push({ nombre, precio });
-        actualizarCarrito();
-      });
-    });
-
-    document.getElementById("cart-btn").onclick = () => {
-      document.getElementById("cart-modal").style.display = "flex";
-    };
-  </script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
