@@ -2,10 +2,10 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>FORGAMERSLINE</title>
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet" />
 </head>
 <body>
   <header>
@@ -21,14 +21,15 @@
   </header>
 
   <div class="container">
-    <!-- Sidebar lateral con categorías -->
+    <!-- Menú lateral -->
     <aside class="sidebar">
       <h2>Categorías</h2>
       <div class="categoria-lista">
-        <div class="categoria" data-categoria="Videojuegos">🎮 Videojuegos</div>
-        <div class="categoria" data-categoria="Consolas">🕹️ Consolas</div>
-        <div class="categoria" data-categoria="Controles">🎲 Controles</div>
-        <div class="categoria" data-categoria="Figuras">🧸 Figuras</div>
+        <div class="categoria active" data-categoria="todos">Todos</div>
+        <div class="categoria" data-categoria="videojuegos">🎮 Videojuegos</div>
+        <div class="categoria" data-categoria="consolas">🕹️ Consolas</div>
+        <div class="categoria" data-categoria="controles">🎲 Controles</div>
+        <div class="categoria" data-categoria="figuras">🧸 Figuras</div>
       </div>
     </aside>
 
@@ -37,21 +38,27 @@
       <section class="productos">
         <h2>Tienda de Videojuegos y Accesorios</h2>
 
-        <div class="producto" data-nombre="PS5" data-precio="500" data-categoria="Consolas">
+        <div class="producto" data-categoria="consolas">
           <img src="ps5.jpg" alt="PlayStation 5" class="producto-img" />
           <span>PlayStation 5 - $500</span>
           <button class="add-cart">Agregar</button>
         </div>
 
-        <div class="producto" data-nombre="Control Xbox" data-precio="70" data-categoria="Controles">
+        <div class="producto" data-categoria="controles">
           <img src="control-xbox.jpg" alt="Control Xbox" class="producto-img" />
           <span>Control Xbox - $70</span>
           <button class="add-cart">Agregar</button>
         </div>
 
-        <div class="producto" data-nombre="Minecraft" data-precio="60" data-categoria="Videojuegos">
-          <img src="Minecraft.jpg" alt="Minecraft" class="producto-img" />
+        <div class="producto" data-categoria="videojuegos">
+          <img src="minecraft.jpg" alt="Minecraft" class="producto-img" />
           <span>Minecraft - $60</span>
+          <button class="add-cart">Agregar</button>
+        </div>
+
+        <div class="producto" data-categoria="figuras">
+          <img src="figura.jpg" alt="Figura Gamer" class="producto-img" />
+          <span>Figura Gamer - $30</span>
           <button class="add-cart">Agregar</button>
         </div>
       </section>
@@ -66,29 +73,30 @@
     </main>
   </div>
 
-  <!-- Modal de autenticación -->
-  <div id="auth-modal" class="modal">
-    <div class="modal-content">
-      <span id="close-modal">&times;</span>
-      <h2>Inicia sesión o regístrate</h2>
-      <button id="google-login">Google</button>
-      <button id="facebook-login">Facebook</button>
-    </div>
-  </div>
+  <!-- Scripts -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const categorias = document.querySelectorAll('.categoria');
+      const productos = document.querySelectorAll('.producto');
 
-  <!-- Modal del carrito -->
-  <div id="cart-modal" class="modal">
-    <div class="modal-content">
-      <span id="close-cart">&times;</span>
-      <h2>Carrito de Compras</h2>
-      <ul id="cart-items"></ul>
-      <p>Total: $<span id="cart-total">0</span></p>
-    </div>
-  </div>
+      categorias.forEach(categoria => {
+        categoria.addEventListener('click', () => {
+          // Cambiar clase activa
+          categorias.forEach(c => c.classList.remove('active'));
+          categoria.classList.add('active');
 
-  <!-- Firebase (versión compat) -->
-  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth-compat.js"></script>
-  <script src="script.js"></script>
+          const categoriaSeleccionada = categoria.getAttribute('data-categoria');
+
+          productos.forEach(producto => {
+            if (categoriaSeleccionada === 'todos' || producto.getAttribute('data-categoria') === categoriaSeleccionada) {
+              producto.style.display = 'flex';
+            } else {
+              producto.style.display = 'none';
+            }
+          });
+        });
+      });
+    });
+  </script>
 </body>
 </html>
