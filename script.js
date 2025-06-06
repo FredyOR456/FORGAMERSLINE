@@ -36,15 +36,29 @@ const actualizarCarrito = () => {
   const count = document.getElementById("cart-count");
   lista.innerHTML = "";
   let suma = 0;
-  carrito.forEach(item => {
+
+  carrito.forEach((item, index) => {
     const li = document.createElement("li");
     li.textContent = `${item.nombre} - $${item.precio}`;
+
+    // Botón para quitar producto
+    const quitarBtn = document.createElement("button");
+    quitarBtn.textContent = "❌ Quitar";
+    quitarBtn.style.marginLeft = "10px";
+    quitarBtn.onclick = () => {
+      carrito.splice(index, 1); // Elimina el producto por índice
+      actualizarCarrito(); // Refresca el carrito
+    };
+
+    li.appendChild(quitarBtn);
     lista.appendChild(li);
     suma += item.precio;
   });
+
   total.textContent = suma;
   count.textContent = carrito.length;
 };
+
 document.querySelectorAll(".add-cart").forEach(btn => {
   btn.addEventListener("click", e => {
     const producto = e.target.parentElement;
