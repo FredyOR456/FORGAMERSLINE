@@ -276,3 +276,90 @@ html {
     display: block;
   }
 }
+/* ====== Efecto llamas para título ====== */
+.flame-text {
+  position: relative;
+  color: #ff4500; /* naranja fuego */
+  font-weight: 900;
+  font-size: 3rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  animation: flicker 1.5s infinite alternate;
+  filter: drop-shadow(0 0 10px #ff4500);
+}
+
+.flame-text::before,
+.flame-text::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.6;
+  color: #ff6f00;
+  filter: blur(6px);
+  animation: flicker 1.5s infinite alternate;
+  animation-delay: 0.2s;
+  pointer-events: none;
+  user-select: none;
+}
+
+.flame-text::after {
+  color: #ffa500;
+  filter: blur(12px);
+  animation-delay: 0.4s;
+}
+
+@keyframes flicker {
+  0%, 100% {
+    text-shadow:
+      0 0 5px #ff4500,
+      0 0 10px #ff4500,
+      0 0 20px #ff6f00,
+      0 0 30px #ffa500,
+      0 0 40px #ff8c00;
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    text-shadow:
+      0 0 10px #ff6347,
+      0 0 20px #ff4500,
+      0 0 30px #ff8c00,
+      0 0 40px #ffa500,
+      0 0 50px #ff4500;
+    transform: translateY(-2px) scale(1.05);
+  }
+}
+
+/* ====== Sección misión y visión ====== */
+#mision-vision {
+  background: #1a0a3d;
+  border: 2px solid #8a2be2;
+  border-radius: 15px;
+  padding: 30px 40px;
+  margin: 50px auto;
+  max-width: 900px;
+  box-shadow:
+    0 0 10px #8a2be2,
+    0 0 20px #9400d3,
+    0 0 30px #7b1fa2;
+}
+
+#mision-vision h3 {
+  font-family: 'Orbitron', sans-serif;
+  color: #d1a7ff;
+  text-shadow:
+    0 0 5px #d1a7ff,
+    0 0 10px #9c27b0;
+  margin-bottom: 15px;
+}
+
+#mision-vision p {
+  font-family: 'Orbitron', sans-serif;
+  color: #c1b0ff;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  text-shadow:
+    0 0 3px #c1b0ff;
+  margin-bottom: 25px;
+}
