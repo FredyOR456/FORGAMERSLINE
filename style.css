@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
 
-/* FONDO ANIMADO */
+/* ANIMACIÓN DE FONDO */
 body {
   font-family: 'Orbitron', sans-serif;
   margin: 0;
@@ -17,8 +17,49 @@ body {
   100% { background-position: 0% 50%; }
 }
 
-/* TEXTO NEÓN GENERAL */
-h1, h2, h3, p, span, .slogan {
+/* HEADER */
+header {
+  background-color: #4B0082;
+  color: white;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.logo-container {
+  flex: 1;
+  text-align: center;
+}
+
+/* LOGO CON ANIMACIÓN */
+.logo {
+  max-height: 80px;
+  display: block;
+  margin: 0 auto;
+  animation: pulse 3s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 5px #6A0DAD);
+  }
+  50% {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 15px #9B30FF);
+  }
+  100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 5px #6A0DAD);
+  }
+}
+
+/* TEXTO NEÓN */
+.slogan, h1, h2, h3 {
+  font-weight: bold;
+  margin-top: 5px;
   color: white;
   text-shadow:
     0 0 5px #9B30FF,
@@ -27,44 +68,7 @@ h1, h2, h3, p, span, .slogan {
     0 0 40px #DA70D6;
 }
 
-/* HEADER */
-header {
-  background-color: #4B0082;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px;
-  flex-wrap: wrap;
-  box-shadow:
-    0 0 10px #9B30FF,
-    0 0 20px #BA55D3;
-}
-
-/* LOGO CON ANIMACIÓN PULSO */
-.logo {
-  max-height: 80px;
-  animation: pulse 3s infinite;
-  filter: drop-shadow(0 0 10px #BA55D3);
-}
-
-@keyframes pulse {
-  0%, 100% {
-    transform: scale(1);
-    filter: drop-shadow(0 0 10px #BA55D3);
-  }
-  50% {
-    transform: scale(1.05);
-    filter: drop-shadow(0 0 20px #DA70D6);
-  }
-}
-
-/* SLOGAN */
-.slogan {
-  font-weight: bold;
-  margin-top: 5px;
-}
-
-/* NAV */
+/* NAV BOTONES */
 nav {
   display: flex;
   gap: 10px;
@@ -78,137 +82,129 @@ nav button {
   border-radius: 5px;
   cursor: pointer;
   font-weight: bold;
-  box-shadow:
-    0 0 5px #9B30FF,
-    0 0 10px #BA55D3;
   transition: box-shadow 0.3s ease, transform 0.2s;
+  text-shadow:
+    0 0 5px #BA55D3;
 }
 
 nav button:hover {
-  box-shadow:
-    0 0 20px #9B30FF,
-    0 0 40px #DA70D6;
+  box-shadow: 0 0 15px #9B30FF, 0 0 30px #BA55D3;
   transform: scale(1.05);
 }
 
-/* LATERAL MENU */
-aside {
-  background: #1a001a;
-  border-right: 3px solid #9B30FF;
-  box-shadow:
-    0 0 10px #9B30FF,
-    0 0 20px #BA55D3;
-  width: 220px;
-  height: 100vh;
+/* LATERAL SIDEBAR */
+#sidebar {
   position: fixed;
-  top: 0;
+  top: 80px; /* debajo del header */
   left: 0;
-  padding: 30px 15px;
+  width: 220px;
+  height: calc(100vh - 80px);
+  background: #2E0854;
+  border-right: 2px solid #9B30FF;
   display: flex;
   flex-direction: column;
-  gap: 30px;
-  color: white;
+  padding-top: 20px;
+  box-shadow:
+    2px 0 10px #9B30FF,
+    2px 0 20px #DA70D6;
+  z-index: 100;
 }
 
-aside h2 {
-  color: #DA70D6;
-  text-shadow:
-    0 0 10px #BA55D3,
-    0 0 20px #DA70D6;
-  font-weight: 900;
-  font-size: 1.8em;
-  margin-bottom: 15px;
+#sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-left: 15px;
 }
 
-aside nav a {
-  display: block;
-  text-decoration: none;
-  color: #9B30FF;
+#sidebar nav button {
+  background-color: transparent;
+  border: none;
+  color: #BA55D3;
   font-weight: bold;
-  padding: 8px 15px;
-  border-radius: 8px;
-  box-shadow:
-    0 0 10px #9B30FF;
-  transition: background-color 0.3s, box-shadow 0.3s;
+  font-size: 18px;
+  cursor: pointer;
+  text-align: left;
+  padding: 10px 5px;
+  border-left: 4px solid transparent;
+  transition: all 0.3s ease;
+  text-shadow:
+    0 0 5px #BA55D3,
+    0 0 10px #DA70D6;
 }
 
-aside nav a:hover {
-  background-color: #6A0DAD;
-  box-shadow:
-    0 0 15px #DA70D6,
-    0 0 30px #BA55D3;
-  color: white;
+#sidebar nav button:hover,
+#sidebar nav button.active {
+  color: #fff;
+  border-left: 4px solid #9B30FF;
+  text-shadow:
+    0 0 10px #9B30FF,
+    0 0 20px #DA70D6;
+  background: rgba(154, 48, 255, 0.2);
+  transform: scale(1.05);
 }
 
-/* MAIN CONTENIDO AJUSTADO POR LATERAL */
+/* CONTENIDO PRINCIPAL */
 main {
   margin-left: 240px;
-  padding: 25px 30px;
-  min-height: 100vh;
-  background: rgba(0,0,0,0.4);
-  box-shadow:
-    inset 0 0 30px #6A0DAD;
-  border-radius: 15px;
+  padding: 20px;
+}
+
+.productos {
+  margin-bottom: 30px;
 }
 
 /* PRODUCTOS */
 .producto {
-  background: rgba(0,0,0,0.7);
-  border: 2px solid #9B30FF;
-  border-radius: 15px;
-  box-shadow:
-    0 0 8px #9B30FF,
-    0 0 15px #BA55D3;
+  margin: 20px 0;
   padding: 15px;
-  margin-bottom: 25px;
+  border: 1px solid #9B30FF;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.6);
   display: flex;
   align-items: center;
-  gap: 25px;
+  gap: 20px;
   color: white;
   text-shadow:
-    0 0 4px #9B30FF;
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
+    0 0 3px #9B30FF,
+    0 0 6px #BA55D3;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .producto:hover {
-  box-shadow:
-    0 0 25px #DA70D6,
-    0 0 50px #BA55D3;
-  transform: scale(1.04);
+  transform: scale(1.02);
+  box-shadow: 0 0 20px #9B30FF;
 }
 
+/* IMÁGENES DE PRODUCTOS */
 .producto-img {
-  width: 120px;
-  border-radius: 12px;
-  box-shadow:
-    0 0 15px #9B30FF;
-  transition: transform 0.3s ease;
+  width: 100px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #9B30FF;
+  transition: transform 0.3s;
 }
 
 .producto-img:hover {
-  transform: scale(1.12);
+  transform: scale(1.1);
 }
 
-/* BOTÓN AGREGAR CARRITO */
+/* BOTÓN DE CARRITO */
 button.add-cart {
-  margin-left: auto;
   background-color: #6A0DAD;
-  border: none;
-  border-radius: 8px;
-  padding: 10px 15px;
-  font-weight: bold;
   color: white;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
   cursor: pointer;
-  box-shadow:
-    0 0 8px #9B30FF;
   transition: box-shadow 0.3s ease, transform 0.2s;
+  text-shadow:
+    0 0 5px #BA55D3;
 }
 
 button.add-cart:hover {
-  box-shadow:
-    0 0 18px #DA70D6,
-    0 0 35px #BA55D3;
-  transform: scale(1.1);
+  box-shadow: 0 0 10px #9B30FF, 0 0 20px #BA55D3;
+  transform: scale(1.05);
 }
 
 /* MODALES */
@@ -218,76 +214,76 @@ button.add-cart:hover {
   top: 0; left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.85);
+  background: rgba(0,0,0,0.8);
   justify-content: center;
   align-items: center;
-  z-index: 1000;
+  z-index: 999;
 }
 
 .modal-content {
   background: #1a001a;
   color: #9B30FF;
-  padding: 25px;
-  border-radius: 15px;
-  width: 320px;
-  box-shadow:
-    0 0 20px #9B30FF,
-    0 0 40px #DA70D6;
+  padding: 20px;
+  border-radius: 10px;
+  width: 300px;
   position: relative;
+  box-shadow:
+    0 0 10px #9B30FF,
+    0 0 20px #DA70D6;
 }
 
 #close-modal, #close-cart {
   position: absolute;
   top: 10px;
   right: 15px;
-  font-size: 24px;
+  font-size: 20px;
   cursor: pointer;
   color: #BA55D3;
-  font-weight: bold;
 }
 
 #cart-items button {
   background-color: #9B30FF;
   color: white;
   border: none;
-  padding: 5px 10px;
-  margin-left: 12px;
+  padding: 4px 8px;
+  margin-left: 10px;
   cursor: pointer;
-  border-radius: 6px;
-  box-shadow:
-    0 0 8px #9B30FF;
-  transition: background-color 0.3s ease;
-}
-
-#cart-items button:hover {
-  background-color: #DA70D6;
+  border-radius: 4px;
 }
 
 /* RESPONSIVE */
-@media (max-width: 900px) {
-  aside {
-    position: relative;
-    width: 100%;
-    height: auto;
-    border-right: none;
-    border-bottom: 3px solid #9B30FF;
-    flex-direction: row;
-    justify-content: center;
-    padding: 10px 0;
-    gap: 15px;
+@media (max-width: 768px) {
+  #sidebar {
+    position: fixed;
+    width: 180px;
+    top: 60px;
+    height: calc(100vh - 60px);
+    padding-top: 15px;
   }
-
-  aside h2 {
-    font-size: 1.3em;
-  }
-
-  aside nav {
-    display: flex;
-    gap: 15px;
-  }
-
   main {
-    margin-left: 0;
+    margin-left: 190px;
     padding: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    flex-direction: column;
+    gap: 10px;
+  }
+  #sidebar {
+    position: fixed;
+    width: 140px;
+    top: 60px;
+    height: calc(100vh - 60px);
+    padding-top: 10px;
+  }
+  main {
+    margin-left: 150px;
+    padding: 10px;
+  }
+  nav button {
+    padding: 8px 15px;
+    font-size: 14px;
   }
 }
