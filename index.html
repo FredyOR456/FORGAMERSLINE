@@ -178,6 +178,33 @@
     Todos los pedidos son despachados con número de seguimiento. Los costos de envío se calculan al finalizar la compra.
   </p>
 </section>
+<section id="checkout-section" class="neon-card" style="display: none; padding: 30px; margin-top: 40px;">
+  <h2 class="neon-text">Finalizar Compra</h2>
+  <form id="checkout-form" class="neon-text" style="display: flex; flex-direction: column; gap: 15px; max-width: 400px;">
+    <label>
+      Nombre completo:
+      <input type="text" id="nombre" required class="neon-input" />
+    </label>
+
+    <label>
+      Dirección de envío:
+      <textarea id="direccion" rows="3" required class="neon-input"></textarea>
+    </label>
+
+    <label>
+      Método de pago:
+      <select id="metodo-pago" required class="neon-input">
+        <option value="">Seleccionar...</option>
+        <option value="tarjeta">Tarjeta de Crédito/Débito</option>
+        <option value="paypal">PayPal</option>
+        <option value="transferencia">Transferencia Bancaria</option>
+        <option value="contraentrega">Pago contra entrega</option>
+      </select>
+    </label>
+
+    <button type="submit" class="neon-btn">Confirmar Compra</button>
+  </form>
+</section>
 
   </main>
 
@@ -198,6 +225,8 @@
       <h2 class="neon-text">Carrito de Compras</h2>
       <ul id="cart-items" class="neon-text"></ul>
       <p class="neon-text">Total: $<span id="cart-total">0</span></p>
+      <button id="checkout-btn" class="neon-btn" style="margin-top: 10px;">Pagar</button>
+
     </div>
   </div>
 
