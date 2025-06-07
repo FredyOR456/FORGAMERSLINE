@@ -51,6 +51,7 @@ const actualizarCarrito = () => {
     quitarBtn.onclick = () => {
       carrito.splice(index, 1);
       actualizarCarrito();
+      actualizarEstadoPagar(); // Actualizar estado del botón pagar
     };
 
     li.appendChild(quitarBtn);
@@ -69,6 +70,7 @@ document.querySelectorAll(".add-cart").forEach(btn => {
     const precio = parseFloat(producto.getAttribute("data-precio"));
     carrito.push({ nombre, precio });
     actualizarCarrito();
+    actualizarEstadoPagar(); // Actualizar estado del botón pagar
   });
 });
 
@@ -77,27 +79,6 @@ document.getElementById("cart-btn").onclick = () => {
 };
 document.getElementById("close-cart").onclick = () => {
   document.getElementById("cart-modal").style.display = "none";
-  document.getElementById("checkout-btn").addEventListener("click", () => {
-  document.getElementById("cart-modal").style.display = "none";
-  document.getElementById("checkout-section").style.display = "block";
-
-  let suma = carrito.reduce((acc, item) => acc + item.precio, 0);
-  document.getElementById("checkout-total").textContent = suma.toFixed(2);
-
-  const checkoutItems = document.getElementById("checkout-items");
-  checkoutItems.innerHTML = "";
-  carrito.forEach(item => {
-    const li = document.createElement("li");
-    li.textContent = `${item.nombre} - $${item.precio.toFixed(2)}`;
-    checkoutItems.appendChild(li);
-  });
-
-  window.scrollTo({
-    top: document.getElementById("checkout-section").offsetTop,
-    behavior: "smooth"
-  });
-});
-
 };
 
 /* BOTÓN HAMBURGUESA */
@@ -119,9 +100,12 @@ sidebar.querySelectorAll("a").forEach(link => {
 
 /* Mostrar sección de checkout al dar clic en "Pagar" */
 document.getElementById("checkout-btn").addEventListener("click", () => {
+  if(carrito.length === 0) {
+    alert("Tu carrito está vacío.");
+    return;
+  }
   document.getElementById("cart-modal").style.display = "none";
-  const checkoutSection = document.getElementById("checkout-section");
-  checkoutSection.style.display = "block";
+  document.getElementById("checkout-section").style.display = "block";
 
   // Calcular total
   let suma = carrito.reduce((acc, item) => acc + item.precio, 0);
@@ -138,7 +122,7 @@ document.getElementById("checkout-btn").addEventListener("click", () => {
 
   // Scroll al checkout
   window.scrollTo({
-    top: checkoutSection.offsetTop,
+    top: document.getElementById("checkout-section").offsetTop,
     behavior: "smooth"
   });
 });
@@ -158,6 +142,16 @@ document.getElementById("checkout-form").addEventListener("submit", (e) => {
   alert("Gracias por tu compra, " + nombre + ". ¡Tu pedido está en camino!");
   carrito = [];
   actualizarCarrito();
+  actualizarEstadoPagar(); // Actualizar estado del botón pagar
   document.getElementById("checkout-form").reset();
   document.getElementById("checkout-section").style.display = "none";
 });
+
+/* Habilitar o deshabilitar botón pagar según contenido del carrito */
+const checkoutBtn = document.getElementById("checkout-btn");
+const actualizarEstadoPagar = () => {
+  checkoutBtn.disabled = carrito.length === 0;
+};
+
+// Inicializar estado del botón pagar
+actualizarEstadoPagar();
