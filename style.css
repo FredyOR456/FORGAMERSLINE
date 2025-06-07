@@ -442,3 +442,58 @@ html {
       0 0 50px #d8b7ff;
   }
 }
+<style>
+  /* DISEÑO NEÓN SUAVE PARA EL CHECKOUT */
+  #checkout-section {
+    background-color: #0f0f1b;
+    border: 2px solid #8a2be2;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 600px;
+    color: #fff;
+    box-shadow: 0 0 15px #8a2be2;
+  }
+
+  #checkout-section input,
+  #checkout-section select,
+  #checkout-section button {
+    background-color: #1a1a2e;
+    border: 1px solid #8a2be2;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 8px 0;
+    width: 100%;
+    color: #fff;
+    box-shadow: 0 0 8px #8a2be2;
+    transition: 0.3s ease;
+  }
+
+  #checkout-section input:focus,
+  #checkout-section select:focus {
+    outline: none;
+    box-shadow: 0 0 12px #c77dff;
+  }
+
+  #checkout-section button {
+    background-color: #8a2be2;
+    cursor: pointer;
+    font-weight: bold;
+  }
+
+  #checkout-section button:hover {
+    background-color: #a259ff;
+    box-shadow: 0 0 20px #c77dff;
+  }
+
+  #checkout-section ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+  }
+
+  #checkout-section li {
+    padding: 5px 0;
+    border-bottom: 1px solid #8a2be2;
+  }
+</style>
