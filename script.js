@@ -100,7 +100,18 @@ sidebar.querySelectorAll("a").forEach(link => {
 document.getElementById("checkout-btn").addEventListener("click", () => {
   document.getElementById("cart-modal").style.display = "none";
   document.getElementById("checkout-section").style.display = "block";
-  window.scrollTo({ top: document.getElementById("checkout-section").offsetTop, behavior: "smooth" });
+
+  // Calcular total y actualizar en el checkout
+  let suma = carrito.reduce((acc, item) => acc + item.precio, 0);
+  document.getElementById("checkout-total").textContent = suma;
+
+  // Scroll al checkout
+  window.scrollTo({
+    top: document.getElementById("checkout-section").offsetTop,
+    behavior: "smooth"
+  });
+});
+
 });
 
 /* Validar y procesar el formulario de checkout */
