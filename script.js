@@ -90,17 +90,23 @@ hamburgerBtn.addEventListener("click", () => {
 /* Cerrar menú al hacer click en enlace (móvil) */
 sidebar.querySelectorAll("a").forEach(link => {
   link.addEventListener("click", () => {
-    if(window.innerWidth <= 768){
+    if (window.innerWidth <= 768) {
       sidebar.classList.remove("open");
-     document.getElementById("checkout-btn").addEventListener("click", () => {
+    }
+  });
+});
+
+/* Mostrar sección de checkout al dar clic en "Pagar" */
+document.getElementById("checkout-btn").addEventListener("click", () => {
   document.getElementById("cart-modal").style.display = "none";
   document.getElementById("checkout-section").style.display = "block";
   window.scrollTo({ top: document.getElementById("checkout-section").offsetTop, behavior: "smooth" });
 });
 
+/* Validar y procesar el formulario de checkout */
 document.getElementById("checkout-form").addEventListener("submit", (e) => {
   e.preventDefault();
-  const nombre = document.getElementById("nombre").value.trim();
+  const nombre = document.querySelector("#checkout-form #nombre").value.trim();
   const direccion = document.getElementById("direccion").value.trim();
   const metodo = document.getElementById("metodo-pago").value;
 
@@ -110,9 +116,8 @@ document.getElementById("checkout-form").addEventListener("submit", (e) => {
   }
 
   alert("Gracias por tu compra, " + nombre + ". ¡Tu pedido está en camino!");
-  // Aquí puedes vaciar el carrito si deseas, o hacer una redirección.
-});
- 
-    }
-  });
+  carrito = [];
+  actualizarCarrito();
+  document.getElementById("checkout-form").reset();
+  document.getElementById("checkout-section").style.display = "none";
 });
