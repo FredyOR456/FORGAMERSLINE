@@ -100,8 +100,27 @@ sidebar.querySelectorAll("a").forEach(link => {
 document.getElementById("checkout-btn").addEventListener("click", () => {
   document.getElementById("cart-modal").style.display = "none";
   document.getElementById("checkout-section").style.display = "block";
-  window.scrollTo({ top: document.getElementById("checkout-section").offsetTop, behavior: "smooth" });
+
+  // Calcular total
+  let suma = carrito.reduce((acc, item) => acc + item.precio, 0);
+  document.getElementById("checkout-total").textContent = suma;
+
+  // Mostrar resumen de productos en el checkout
+  const checkoutItems = document.getElementById("checkout-items");
+  checkoutItems.innerHTML = "";
+  carrito.forEach(item => {
+    const li = document.createElement("li");
+    li.textContent = `${item.nombre} - $${item.precio}`;
+    checkoutItems.appendChild(li);
+  });
+
+  // Scroll al checkout
+  window.scrollTo({
+    top: document.getElementById("checkout-section").offsetTop,
+    behavior: "smooth"
+  });
 });
+
 
 /* Validar y procesar el formulario de checkout */
 document.getElementById("checkout-form").addEventListener("submit", (e) => {
