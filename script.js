@@ -106,7 +106,8 @@ document.getElementById("checkout-btn").addEventListener("click", () => {
 /* Validar y procesar el formulario de checkout */
 document.getElementById("checkout-form").addEventListener("submit", (e) => {
   e.preventDefault();
-  const nombre = document.querySelector("#checkout-form #nombre").value.trim();
+  const nombre = document.getElementById("checkout-nombre").value.trim();
+
   const direccion = document.getElementById("direccion").value.trim();
   const metodo = document.getElementById("metodo-pago").value;
 
