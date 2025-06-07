@@ -92,6 +92,27 @@ sidebar.querySelectorAll("a").forEach(link => {
   link.addEventListener("click", () => {
     if(window.innerWidth <= 768){
       sidebar.classList.remove("open");
+     document.getElementById("checkout-btn").addEventListener("click", () => {
+  document.getElementById("cart-modal").style.display = "none";
+  document.getElementById("checkout-section").style.display = "block";
+  window.scrollTo({ top: document.getElementById("checkout-section").offsetTop, behavior: "smooth" });
+});
+
+document.getElementById("checkout-form").addEventListener("submit", (e) => {
+  e.preventDefault();
+  const nombre = document.getElementById("nombre").value.trim();
+  const direccion = document.getElementById("direccion").value.trim();
+  const metodo = document.getElementById("metodo-pago").value;
+
+  if (!nombre || !direccion || !metodo) {
+    alert("Por favor completa todos los campos.");
+    return;
+  }
+
+  alert("Gracias por tu compra, " + nombre + ". ¡Tu pedido está en camino!");
+  // Aquí puedes vaciar el carrito si deseas, o hacer una redirección.
+});
+ 
     }
   });
 });
