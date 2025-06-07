@@ -122,3 +122,36 @@ document.getElementById("checkout-form").addEventListener("submit", (e) => {
   document.getElementById("checkout-form").reset();
   document.getElementById("checkout-section").style.display = "none";
 });
+const actualizarCarrito = () => {
+  const lista = document.getElementById("cart-items");
+  const total = document.getElementById("cart-total");
+  const count = document.getElementById("cart-count");
+  const checkoutTotal = document.getElementById("checkout-total"); // NUEVO
+
+  lista.innerHTML = "";
+  let suma = 0;
+
+  carrito.forEach((item, index) => {
+    const li = document.createElement("li");
+    li.textContent = `${item.nombre} - $${item.precio}`;
+
+    const quitarBtn = document.createElement("button");
+    quitarBtn.textContent = "❌ Quitar";
+    quitarBtn.style.marginLeft = "10px";
+    quitarBtn.onclick = () => {
+      carrito.splice(index, 1);
+      actualizarCarrito(); // se vuelve a calcular
+    };
+
+    li.appendChild(quitarBtn);
+    lista.appendChild(li);
+    suma += item.precio;
+  });
+
+  total.textContent = suma.toFixed(2);
+  count.textContent = carrito.length;
+
+  if (checkoutTotal) {
+    checkoutTotal.textContent = suma.toFixed(2); // ACTUALIZA TOTAL EN CHECKOUT
+  }
+};
