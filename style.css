@@ -303,3 +303,18 @@ html {
   border-color: #c084fc;
   box-shadow: 0 0 15px #c084fc;
 }
+.neon-input {
+  padding: 10px;
+  border: 2px solid #9b00ff;
+  background-color: black;
+  color: #fff;
+  font-family: 'Orbitron', sans-serif;
+  border-radius: 5px;
+  box-shadow: 0 0 8px #9b00ff;
+  width: 100%;
+}
+
+.neon-input:focus {
+  outline: none;
+  box-shadow: 0 0 12px #9b00ff, 0 0 20px #7000cc;
+}
